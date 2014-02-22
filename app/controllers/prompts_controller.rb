@@ -15,6 +15,8 @@ class PromptsController < FlowBaseController
   def set_replies(prompt)
     if prompt.replies.length == 0
       prompt.replies.build
+    elsif prompt.replies.length > 1
+      prompt.replies = [prompt.replies.last]
     end
   end
 

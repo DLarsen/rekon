@@ -19,7 +19,9 @@ Prompt.create(
 )
 Prompt.create(
   section: team_section,
-  slug: 'b', instructions: "Who is the most important person in the company?",
+  slug: 'b',
+  instructions: "Who is the most important person in the company?",
+  type_of: 'radio',
   suggested_answers: ["CEO", "Janitor", "The Customer", "David", "Jon", "Nic"]
 )
 
