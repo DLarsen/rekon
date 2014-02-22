@@ -17,10 +17,12 @@
 
 class Prompt < ActiveRecord::Base
 
+  # relationships
+  has_many :replies
+  belongs_to :section
+
   serialize :suggested_answers
   serialize :dependencies
-
-  belongs_to :section
 
   # We may not want to have IDs... maybe slugs
   def prompt_ids_for_dependencies

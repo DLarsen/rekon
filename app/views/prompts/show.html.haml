@@ -1,13 +1,12 @@
-:css
-  .instructions { font-size: 44px; margin: 20px 0; }
+%h3.no-mt!= @prompt.instructions
 
-%h1 SHOW PROMPT
+.panel.panel-default
+  .panel-body
+    =form_for @prompt, url: {action: "create"} do |form|
+      !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers)
 
 %pre=@prompt.to_json
 
-.instructions=@prompt.instructions
-
--if @prompt.suggested_answers
-  %ul
-    -@prompt.suggested_answers.each do |a|
-      %li=a
+Replies
+-@prompt.replies.each do |reply|
+  %pre=reply.to_json

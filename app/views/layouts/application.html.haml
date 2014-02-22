@@ -32,7 +32,15 @@
                 %a=current_user.username
 
       .col-xs-12.content-container
-        = yield
+        -if content_for?(:nav)
+          .row
+            .col-sm-3
+              = yield :nav
+            .col-sm-9
+              = yield
+        -else
+          = yield
+
 
       %footer.footer
         .text-muted.text-center= 'Made by Dave, Nic & Jon'
