@@ -9,4 +9,4 @@
     %tr
       %td=p.section.title
       %td=p.id
-      %td=link_to p.instructions, prompt_path(p)
+      %td=link_to p.instructions.html_safe, prompt_path(p)
