@@ -1,13 +1,13 @@
 # == Schema Information
 #
-# Table name: flows
+# Table name: projects
 #
 #  id         :integer          not null, primary key
-#  title      :string(255)
+#  name       :string(255)
+#  flow_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Flow < ActiveRecord::Base
-  has_many :sections
+class Project < ActiveRecord::Base
 end

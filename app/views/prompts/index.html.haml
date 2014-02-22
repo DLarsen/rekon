@@ -1,0 +1,12 @@
+%h1 All Prompts
+
+%table.table
+  %tr
+    %th Section
+    %th ID
+    %th Instructions
+  -@prompts.each do |p|
+    %tr
+      %td=p.section.title
+      %td=p.id
+      %td=link_to p.instructions, prompt_path(p)

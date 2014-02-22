@@ -8,6 +8,10 @@
 #  updated_at :datetime
 #
 
-class Flow < ActiveRecord::Base
-  has_many :sections
-end
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+
+two:
+  title: MyString

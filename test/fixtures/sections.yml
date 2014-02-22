@@ -10,8 +10,12 @@
 #  flow_id    :integer
 #
 
-class Section < ActiveRecord::Base
-  # we will want a way to get top-level prompts OR our entry points are sub-sections
-  has_many :prompts
-  belongs_to :flow
-end
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  slug: MyString
+
+two:
+  title: MyString
+  slug: MyString

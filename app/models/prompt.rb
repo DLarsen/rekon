@@ -1,30 +1,22 @@
-class Prompt
+# == Schema Information
+#
+# Table name: prompts
+#
+#  id                :integer          not null, primary key
+#  section_id        :integer
+#  sequence          :integer
+#  type              :string(32)
+#  instructions      :text
+#  suggested_answers :text
+#  multi_response?   :boolean
+#  dependencies      :text
+#  created_at        :datetime
+#  updated_at        :datetime
 
-  attr_accessible :id
+class Prompt < ActiveRecord::Base
 
-  # we potentially want "top" for UI purposes
-  attr_accessible :top_section
-  attr_accessible :section
+  serialize :suggested_answers
 
-  # 0 is first, million is last
-  attr_accessible :sequence
-
-  #What is the primary type of input?
-  attr_accessible :type
-
-  attr_accessible :instructions
-
-  # for checkbox or radio prompts, we have an array
-  attr_accessible :suggested_answers
-
-  attr_accessible :multi_response?
-
-  # an array of strings, which get parsed out by meets_dependencies?
-  attr_accessible :dependencies
-
-  # needs awareness of the current flow... so maybe we have a separate mechanism to evaluate dependencies
-  def meets_dependencies?
-    false
-  end
+  belongs_to :section
 
 end

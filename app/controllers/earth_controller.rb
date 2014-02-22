@@ -2,7 +2,7 @@
 class EarthController < FlowBaseController
 
   def index
-
+    @flow = current_flow
   end
 
 end

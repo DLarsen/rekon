@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: prompts
+#
+#  id                :integer          not null, primary key
+#  section_id        :integer
+#  sequence          :integer
+#  type              :string(32)
+#  instructions      :text
+#  suggested_answers :text
+#  multi_response?   :boolean
+#  dependencies      :text
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section_id: 1
+  sequence: 1
+  type: 
+  instructions: MyText
+  suggested_answers: MyText
+  multi_response?: false
+  dependencies: MyText
+
+two:
+  section_id: 1
+  sequence: 1
+  type: 
+  instructions: MyText
+  suggested_answers: MyText
+  multi_response?: false
+  dependencies: MyText

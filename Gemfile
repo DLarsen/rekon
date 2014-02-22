@@ -9,6 +9,9 @@ gem 'sqlite3'
 # html gems
 gem 'haml-rails', '>= 0.5.3'
 
+# annotate
+gem 'annotate', '>= 2.6.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '>= 3.1.1.0'

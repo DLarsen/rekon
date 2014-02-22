@@ -1,7 +1,14 @@
 class FlowBaseController < ApplicationController
 
+  helper_method :current_project
+
+
   def current_flow
-    Flow.new
+    Flow.new(title:"Law Office")
+  end
+
+  def current_project
+    Project.new(name:"Teri Larsen CPA")
   end
 
 end
