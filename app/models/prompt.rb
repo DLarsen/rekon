@@ -5,7 +5,7 @@
 #  id                :integer          not null, primary key
 #  section_id        :integer
 #  sequence          :integer
-#  type              :string(32)
+#  type_of           :string(32)
 #  instructions      :text
 #  suggested_answers :text
 #  multi_response?   :boolean
