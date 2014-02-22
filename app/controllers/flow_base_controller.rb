@@ -4,7 +4,7 @@ class FlowBaseController < ApplicationController
 
 
   def current_flow
-    Flow.new(title:"Law Office")
+    Flow.first
   end
 
   def current_project

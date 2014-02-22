@@ -19,14 +19,15 @@
           / Collect the nav links, forms, and other content for toggling
           .header-nav-collapse.collapse.navbar-collapse
             %ul.nav.navbar-nav
-              %li.active
+              %li
                 =link_to "Sections", sections_path
+              %li
                 =link_to "Prompts", prompts_path
             %ul.nav.navbar-nav.navbar-right
               -if current_flow
-                %li
+                %li.navbar-text
                   #{current_flow.title} :
-                  #{current_project.name} :
+                  #{current_project.name}
               %li
                 %a{href: "#"} Username
 
