@@ -3,19 +3,31 @@ module PromptHelper
   # generates proper inputs for the type of prompt
   def prompt_input_factory(form, type_of, answer, suggested_answers = false)
     html = '<div class="row">'
-    if type_of == 'text'
-      html += '<div class="form-group col-xs-12">'
-      form.fields_for :replies do |reply_form|
-        html += reply_form.text_field :answer, :class => 'form-control',
-          :placeholder => suggested_answers
-      end
-      html += '</div>'
-    elsif type_of == 'radio'
-      form.fields_for :replies do |reply_form|
+
+    form.fields_for :replies do |reply_form|
+      if type_of == 'radio'
         html << prompt_radio_input(reply_form, answer, suggested_answers)
+      else
+        html += '<div class="form-group col-xs-12">'
+        if type_of == 'textarea'
+          html += prompt_textarea(reply_form, answer, suggested_answers)
+        else
+          html += prompt_text(reply_form, answer, suggested_answers)
+        end
+        html += '</div>'
       end
     end
+
     html << '</div>'
+  end
+
+  def prompt_text(form, answer, suggestion)
+    form.text_field :answer, :class => 'form-control', :placeholder => suggestion
+  end
+
+  # generates prompt textarea
+  def prompt_textarea(form, answer, suggestion)
+    form.text_area :answer, :class => 'form-control', :placeholder => suggestion
   end
 
   # generates radio inputs
