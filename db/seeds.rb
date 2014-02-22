@@ -11,7 +11,12 @@ no_flow = Flow.create(title:"YOU SHOULD NOT SEE THIS")
 no_section = Section.create({flow:no_flow, title: 'YOU SHOULD NOT SEE THIS', slug: 'no-bueno'})
 
 team_section = Section.create({flow:flow, title: 'Team', slug: 'bkgrnd'})
-Prompt.create(section: team_section, slug: 'a', instructions: "How many employees are on your team?")
+Prompt.create(
+  section: team_section,
+  slug: 'a',
+  instructions: "How many employees are on your team?",
+  suggested_answers: '12'
+)
 Prompt.create(
   section: team_section,
   slug: 'b', instructions: "Who is the most important person in the company?",
