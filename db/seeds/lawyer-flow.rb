@@ -17,8 +17,8 @@ p1 = Prompt.create(
   suggested_answers: ["Not Important", "Somewhat Important", "Very Important"]
 )
 
-Reply.create(prompt:p1, answer: "OK", complete?: true, project: project)
-#Reply.create(prompt:prompt2, answer: "OK", complete?: false, project: project)
+Reply.create(prompt:p1, answer: "OK", complete: true, project: project)
+#Reply.create(prompt:prompt2, answer: "OK", complete: false, project: project)
 
 # Prompt.create(
 #   section: team_section,
@@ -57,8 +57,8 @@ Reply.create(prompt:p1, answer: "OK", complete?: true, project: project)
 # )
 # prompt2 = Prompt.create(section: objections_section, slug: 'f', instructions: "If a prospect says, \"<i>It's too complicated!</i>\" what would you say?")
 
-# Reply.create(prompt:prompt1, answer: "OK", complete?: true, project: project)
-# Reply.create(prompt:prompt2, answer: "OK", complete?: false, project: project)
+# Reply.create(prompt:prompt1, answer: "OK", complete: true, project: project)
+# Reply.create(prompt:prompt2, answer: "OK", complete: false, project: project)
 
 # SectionStatus.create(project: project, section: social_prooof_section, status_code: SectionStatus::EMPTY)
 # SectionStatus.create(project: project, section: objections_section, status_code: SectionStatus::INCOMPLETE)
