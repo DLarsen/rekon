@@ -15,6 +15,22 @@
 /log/*.log
 /tmp
 
+# osx specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
 # rails specific
 *.rbc
 *.sassc
