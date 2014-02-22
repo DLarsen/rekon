@@ -23,7 +23,7 @@ class Prompt < ActiveRecord::Base
   belongs_to :section
 
   # We may not want to have IDs... maybe slugs
-  def prompts_for_dependencies
+  def prompt_ids_for_dependencies
     #hardcode for now
     d = [
       "p:a:*",
@@ -35,7 +35,7 @@ class Prompt < ActiveRecord::Base
       .uniq
       .map{|x| x[2..-1]}
 
-    Prompt.where("slug in (?)", prompt_slugs)
+    Prompt.where("slug in (?)", prompt_slugs).pluck(:id)
   end
 
 end

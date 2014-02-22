@@ -4,11 +4,11 @@ class FlowBaseController < ApplicationController
 
 
   def current_flow
-    Flow.first
+    current_project.flow
   end
 
   def current_project
-    Project.new(name:"Teri Larsen CPA")
+    Project.first
   end
 
 end

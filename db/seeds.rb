@@ -6,7 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
 flow = Flow.create(title:"Lawyer")
+
+project = Project.create(name:"Teri's website", flow: flow)
+
 no_flow = Flow.create(title:"YOU SHOULD NOT SEE THIS")
 no_section = Section.create({flow:no_flow, title: 'YOU SHOULD NOT SEE THIS', slug: 'no-bueno'})
 
