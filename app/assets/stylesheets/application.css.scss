@@ -3,8 +3,14 @@
  * listed below.
  */
 
+// modules first (non outputting)
+@import "modules/all";
+
 // twitter bootstrap
 @import "bootstrap";
 
-// all additional stylesheets should be imported here
+// partials
+@import "partials/all";
+
+// all additional per-controller stylesheets should be imported here
 // ex. @import "stylesheetname";
