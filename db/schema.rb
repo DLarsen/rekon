@@ -47,7 +47,9 @@ ActiveRecord::Schema.define(version: 20140222182856) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
-    t.boolean  "complete?"
+    t.boolean  "complete"
+    t.boolean  "skipped",        default: false
+    t.boolean  "not_applicable", default: false
   end
 
   create_table "section_statuses", force: true do |t|
