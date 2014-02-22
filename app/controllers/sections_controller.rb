@@ -1,11 +1,11 @@
 class SectionsController < FlowBaseController
 
   def index
-    @prompts = Prompt.all
+    @sections = current_flow.sections.all
   end
 
   def show
-    @prompt = Prompt.first
+    @section = current_flow.sections.find(params[:id])
   end
 
 end

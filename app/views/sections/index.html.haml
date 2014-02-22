@@ -1,0 +1,10 @@
+%h1 All Sections
+
+%table.table
+  %tr
+    %th ID
+    %th Section
+  -@sections.each do |s|
+    %tr
+      %td=s.id
+      %td=link_to s.title, section_path(s)

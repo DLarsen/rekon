@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: replies
+#
+#  id         :integer          not null, primary key
+#  prompt_id  :integer
+#  answer     :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prompt_id: 1
+  answer: MyText
+
+two:
+  prompt_id: 1
+  answer: MyText

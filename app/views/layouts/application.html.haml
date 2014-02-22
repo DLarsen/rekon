@@ -20,6 +20,8 @@
           .header-nav-collapse.collapse.navbar-collapse
             %ul.nav.navbar-nav
               %li
+                =link_to "Sections", sections_path
+              %li
                 =link_to "Prompts", prompts_path
             %ul.nav.navbar-nav.navbar-right
               -if current_flow

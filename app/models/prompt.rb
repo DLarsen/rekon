@@ -16,7 +16,24 @@
 class Prompt < ActiveRecord::Base
 
   serialize :suggested_answers
+  serialize :dependencies
 
   belongs_to :section
+
+  # We may not want to have IDs... maybe slugs
+  def prompts_for_dependencies
+    #hardcode for now
+    d = [
+      "p:32:*",
+      "p:45:yes",
+      "p:22:yes p:23:no AND"
+    ]
+    prompt_ids = d.map{|x|x.scan(/p:\d+/)}
+      .flatten
+      .uniq
+      .map{|x| x[2..-1].to_i}
+
+    Prompt.find(prompt_ids)
+  end
 
 end

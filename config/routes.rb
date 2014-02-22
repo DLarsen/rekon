@@ -11,6 +11,7 @@ Rekon::Application.routes.draw do
 
   get 'earth' => 'earth#index'
 
+  resources :sections
   resources :prompts
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

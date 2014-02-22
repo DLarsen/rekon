@@ -5,7 +5,7 @@ class PromptsController < FlowBaseController
   end
 
   def show
-    @prompt = Prompt.first
+    @prompt = Prompt.find(params[:id])
   end
 
 end
