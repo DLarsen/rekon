@@ -12,6 +12,8 @@
 #  dependencies      :text
 #  created_at        :datetime
 #  updated_at        :datetime
+#  slug              :string(255)
+#
 
 class Prompt < ActiveRecord::Base
 
@@ -24,16 +26,16 @@ class Prompt < ActiveRecord::Base
   def prompts_for_dependencies
     #hardcode for now
     d = [
-      "p:32:*",
-      "p:45:yes",
-      "p:22:yes p:23:no AND"
+      "p:a:*",
+      "p:b:yes",
+      "p:c:yes p:d:no AND"
     ]
-    prompt_ids = d.map{|x|x.scan(/p:\d+/)}
+    prompt_slugs = d.map{|x|x.scan(/p:\d+/)}
       .flatten
       .uniq
-      .map{|x| x[2..-1].to_i}
+      .map{|x| x[2..-1]}
 
-    Prompt.find(prompt_ids)
+    Prompt.where("slug in (?)", prompt_slugs)
   end
 
 end
