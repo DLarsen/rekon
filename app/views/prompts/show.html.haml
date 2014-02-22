@@ -3,13 +3,12 @@
 
 %h3.no-mt!= @prompt.instructions
 
-.prompt-details!= @prompt.details
-%p.prompt-hint!= @prompt.hint
+%p.prompt-details!= @prompt.details
 
 .panel.panel-default
   .panel-body
     =form_for @reply do |form|
-      !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers)
+      !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers, @prompt.hint)
       .row
         .col-sm-3
           =link_to "Back", :back, class: 'btn btn-default'
