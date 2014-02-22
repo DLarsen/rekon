@@ -1,13 +1,22 @@
 :css
   .instructions { font-size: 44px; margin: 20px 0; }
 
-%h1 SHOW PROMPT
+%h3.no-mt!= @prompt.instructions
+
+.panel.panel-default
+  .panel-body
+    =form_for @prompt, url: {action: "create"} do |form|
+
+      -if @prompt.type_of == 'text'
+        text reply
+      -elsif @prompt.suggested_answers
+        .row
+          -@prompt.suggested_answers.each do |a|
+            .col-xs-12.col-sm-4.form-group
+              %label
+                %input{ :type => 'radio', :name => 'suggested_answer', :value => a }
+                =a
+          .col-xs-12.col-sm-4.form-group
+            %input.form-control{ :name => 'suggested_answer', :placeholder => 'Name your own' }
 
 %pre=@prompt.to_json
-
-.instructions=@prompt.instructions
-
--if @prompt.suggested_answers
-  %ul
-    -@prompt.suggested_answers.each do |a|
-      %li=a

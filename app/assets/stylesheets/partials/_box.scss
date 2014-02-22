@@ -1,0 +1,8 @@
+// box model
+//-----------------------------
+
+// margins
+.no-mt { margin-top: 0; }
+.mt { margin-top: $box-space; }
+.mt-x { margin-top: $box-space-x; }
+.mt-xx { margin-top: $box-space-xx; }
