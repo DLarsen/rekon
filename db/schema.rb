@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222083633) do
+ActiveRecord::Schema.define(version: 20140222105951) do
 
   create_table "flows", force: true do |t|
     t.string   "title"
@@ -45,7 +45,9 @@ ActiveRecord::Schema.define(version: 20140222083633) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
-    t.boolean  "complete?"
+    t.boolean  "complete"
+    t.boolean  "skipped"
+    t.boolean  "not_applicable"
   end
 
   create_table "section_statuses", force: true do |t|
