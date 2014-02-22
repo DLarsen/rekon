@@ -44,11 +44,12 @@ module PromptHelper
       end
 
       html << '<div class="col-xs-12 col-sm-4 form-group">'
+      html << '<div class="prompt-radio radio">'
       html += form.radio_button :answer, suggestion, :id => id, :checked => checked
       html += ' '
       html += form.label :answer, suggestion, :for => id
 
-      html << '</div>'
+      html << '</div></div>'
     end
     html += '<div class="col-xs-12 col-sm-4 form-group">'
     html += form.text_field :answer, :class => 'form-control', :placeholder => 'Other',
