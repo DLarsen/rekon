@@ -32,8 +32,18 @@ Prompt.create(
   instructions: "What's the nicest thing a client has ever said about your service?",
   type_of: 'text'
 )
-Prompt.create(section: social_prooof_section, slug: 'd', instructions: "Approximately how frequently do you recieve referrals?")
+Prompt.create(
+  section: social_prooof_section,
+  slug: 'd',
+  instructions:
+  "Approximately how frequently do you recieve referrals?"
+)
 
 objections_section = Section.create({flow:flow, title: 'Client Objections', slug: 'objections'})
-Prompt.create(section: objections_section, slug: 'e', instructions: "If a prospect says, \"<i>It's too expensive!</i>\" what would you say?")
+Prompt.create(
+  section: objections_section,
+  slug: 'e',
+  instructions: "If a prospect says, \"<i>It's too expensive!</i>\" what would you say?",
+  type_of: 'textarea'
+)
 Prompt.create(section: objections_section, slug: 'f', instructions: "If a prospect says, \"<i>It's too complicated!</i>\" what would you say?")
