@@ -1,9 +1,9 @@
-/* exported Timber */
-var Timber = (function() {
+/* exported Rekon */
+var Rekon = (function() {
 
-// Timber
-function Timber(modules) {
-  // attach all modules under the primary Timber object by their toString method
+// Rekon
+function Rekon(modules) {
+  // attach all modules under the primary rekon object by their toString method
   modules.forEach(function(module) {
     if(module) {
       if(module.init && typeof module.init === 'function') {
@@ -16,6 +16,6 @@ function Timber(modules) {
   }, this);
 }
 
-return Timber;
+return Rekon;
 
 }());

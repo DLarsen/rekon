@@ -5,22 +5,21 @@
 
 .panel.panel-default
   .panel-body
-    =form_for @prompt, url: {action: "update"} do |form|
+    =form_for @reply do |form|
       !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers)
       .row
         .col-sm-3
           =link_to "Back", :back, class: 'btn btn-default'
-        =form.fields_for :replies do |reply_form|
-          .col-sm-3
-            .checkbox.prompt-radio
-              %label{ title: 'I don\'t want to answer this' }
-                =reply_form.check_box(:skipped)
-                Skip?
-          .col-sm-3
-            .checkbox.prompt-radio
-              %label{ title: 'This is not applicable to me' }
-                =reply_form.check_box(:not_applicable)
-                Not Applicable?
+        .col-sm-3
+          .checkbox.prompt-radio
+            %label{ title: 'I don\'t want to answer this' }
+              =form.check_box(:skipped)
+              Skip?
+        .col-sm-3
+          .checkbox.prompt-radio
+            %label{ title: 'This is not applicable to me' }
+              =form.check_box(:not_applicable)
+              Not Applicable?
         .col-sm-3.text-right
           %button.btn.btn-primary
             Continue
