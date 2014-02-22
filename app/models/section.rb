@@ -27,4 +27,8 @@ class Section < ActiveRecord::Base
       self
     end
   end
+
+  def sub_section
+    self
+  end
 end

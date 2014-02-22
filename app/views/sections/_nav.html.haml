@@ -1,6 +1,15 @@
 %ul.nav.nav-stacked.nav-pills
   -@nav_sections.each do |s|
-    %li{class: @top_section && @top_section.id == s.id ? 'active' : nil}
-      =link_to s.title, section_path(s)
+    -if @top_section && @top_section.id == s.id
+      %li
+        =link_to s.title, section_path(s)
+        %ul.nav.nav-stacked.nav-pills
+          -s.children.each do |c|
+            -if @sub_section && @sub_section.id == c.id
+              %li.active=link_to c.title, section_path(c)
+            -else
+              %li=link_to c.title, section_path(c)
+    -else
+      %li=link_to s.title, section_path(s)
 
 %pre.mt=@top_section

@@ -8,6 +8,7 @@ class SectionsController < ProjectBaseController
   def show
     @section = current_flow.sections.find(params[:id])
     @top_section = @section.top_section
+    @sub_section = @section.sub_section
     @status = Hash[current_project.section_statuses.map{|s| [s.section.id, s]}]
   end
 

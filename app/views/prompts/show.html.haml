@@ -3,6 +3,9 @@
 
 %h3.no-mt!= @prompt.instructions
 
+.prompt-details!= @prompt.details
+.prompt-hint!= @prompt.hint
+
 .panel.panel-default
   .panel-body
     =form_for @prompt, url: {action: "create"} do |form|
