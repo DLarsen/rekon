@@ -8,12 +8,25 @@
 
 .panel.panel-default
   .panel-body
-    =form_for @prompt, url: {action: "create"} do |form|
+    =form_for @reply do |form|
       !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers)
-      .pull-left
-        =link_to "Back", :back, class: 'btn btn-lg'
-      .pull-right
-        =form.submit 'Next? Continue?', class: 'btn btn-lg btn-primary'
+      .row
+        .col-sm-3
+          =link_to "Back", :back, class: 'btn btn-default'
+        .col-sm-3
+          .checkbox.prompt-radio
+            %label{ title: 'I don\'t want to answer this' }
+              =form.check_box(:skipped)
+              Skip?
+        .col-sm-3
+          .checkbox.prompt-radio
+            %label{ title: 'This is not applicable to me' }
+              =form.check_box(:not_applicable)
+              Not Applicable?
+        .col-sm-3.text-right
+          %button.btn.btn-primary
+            Continue
+            =fa_icon 'chevron-circle-right'
 
 %pre=@prompt.to_json
 
