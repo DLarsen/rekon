@@ -1,6 +1,7 @@
-%small.text-muted Section
-%h1=@section.title
+-content_for :nav do
+  =render 'sections/nav'
 
+%h1=@section.title
 %pre=@section.to_json
 
 -if @section.prompts.size > 0
@@ -15,7 +16,7 @@
       %tr
         %td=p.section.title
         %td=p.id
-        %td=link_to p.instructions, prompt_path(p)
+        %td=link_to p.instructions.html_safe, prompt_path(p)
 
 -if @section.children.size > 0
   %h1 Child Sections

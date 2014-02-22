@@ -1,6 +1,9 @@
 // global variables & overrides
 //-----------------------------
 
+$timber-green: #308958;
+$font-family-sans-serif: 'Open Sans', sans-serif;
+
 // box model
 $box-space: 1em;
 $box-space-x: 2em;
@@ -9,3 +12,14 @@ $box-space-xx: 3em;
 // breakpoints
 $container-sm: 100%; // @override
 $container-md: 100%; // @override
+
+// nav whatevers
+$navbar-default-bg: $timber-green;
+$navbar-default-border: darken($timber-green, 25%);
+
+$navbar-default-link-color: #fff;
+$navbar-default-color: #fff;
+
+// button colors
+$btn-primary-color: #fff;
+$btn-primary-bg: $timber-green;

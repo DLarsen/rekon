@@ -13,6 +13,8 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  slug              :string(255)
+#  details           :text
+#  hint              :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

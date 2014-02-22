@@ -8,6 +8,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  flow_id    :integer
+#  parent_id  :integer
 #
 
 class Section < ActiveRecord::Base
@@ -19,4 +20,11 @@ class Section < ActiveRecord::Base
     :foreign_key => "parent_id"
   belongs_to :parent, :class_name => "Section"
 
+  def top_section
+    if parent
+      parent
+    else
+      self
+    end
+  end
 end

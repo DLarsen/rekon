@@ -1,9 +1,16 @@
+-content_for :nav do
+  =render 'sections/nav'
+
 %h3.no-mt!= @prompt.instructions
 
 .panel.panel-default
   .panel-body
     =form_for @prompt, url: {action: "create"} do |form|
       !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers)
+      .pull-left
+        =link_to "Back", :back, class: 'btn btn-lg'
+      .pull-right
+        =form.submit 'Next? Continue?', class: 'btn btn-lg btn-primary'
 
 %pre=@prompt.to_json
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222083633) do
+ActiveRecord::Schema.define(version: 20140222182856) do
 
   create_table "flows", force: true do |t|
     t.string   "title"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20140222083633) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.text     "details"
+    t.text     "hint"
   end
 
   create_table "replies", force: true do |t|

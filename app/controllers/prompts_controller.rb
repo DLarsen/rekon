@@ -7,6 +7,7 @@ class PromptsController < ProjectBaseController
 
   def show
     @prompt = Prompt.find(params[:id])
+    @top_section = @prompt.top_section
     set_replies(@prompt)
   end
 

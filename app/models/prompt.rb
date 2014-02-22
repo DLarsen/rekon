@@ -13,6 +13,8 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  slug              :string(255)
+#  details           :text
+#  hint              :text
 #
 
 class Prompt < ActiveRecord::Base
@@ -38,6 +40,18 @@ class Prompt < ActiveRecord::Base
       .map{|x| x[2..-1]}
 
     Prompt.where("slug in (?)", prompt_slugs).pluck(:id)
+  end
+
+  def top_section
+    if section.parent
+      if section.parent.parent
+        section.parent.parent
+      else
+        section.parent
+      end
+    else
+      section
+    end
   end
 
 end
