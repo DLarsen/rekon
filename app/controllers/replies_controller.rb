@@ -9,7 +9,7 @@ class RepliesController < ProjectBaseController
 
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
+        format.html { redirect_to prompt_url(@reply.prompt_id), notice: 'Reply was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reply }
       else
         format.html { render action: 'new' }
