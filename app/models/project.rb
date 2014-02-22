@@ -12,4 +12,5 @@
 class Project < ActiveRecord::Base
   belongs_to :flow
   has_many :replies
+  has_many :section_statuses
 end

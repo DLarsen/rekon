@@ -12,6 +12,7 @@
 
 class Reply < ActiveRecord::Base
   belongs_to :prompt
+  belongs_to :project
 
   def complete?
     true

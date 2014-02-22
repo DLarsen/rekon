@@ -1,2 +1,7 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+%h1 Select a Project
+
+%ul
+  -current_user.projects.each do |p|
+    %li
+      =link_to p.name, select_project_path(p)
+      %small.text-muted=p.flow.title

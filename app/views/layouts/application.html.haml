@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title= "Rekon"
+    %title= "Timber"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = csrf_meta_tags
 
@@ -29,7 +29,7 @@
                   #{current_flow.title} :
                   #{current_project.name}
               %li
-                %a{href: "#"} Username
+                %a=current_user.username
 
       .col-xs-12.content-container
         = yield

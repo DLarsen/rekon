@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222032407) do
+ActiveRecord::Schema.define(version: 20140222083633) do
 
   create_table "flows", force: true do |t|
     t.string   "title"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140222032407) do
   create_table "prompts", force: true do |t|
     t.integer  "section_id"
     t.integer  "sequence"
-    t.string   "type",              limit: 32
+    t.string   "type_of",           limit: 32
     t.text     "instructions"
     t.text     "suggested_answers"
     t.boolean  "multi_response?"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20140222032407) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+    t.boolean  "complete?"
+  end
+
+  create_table "section_statuses", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "section_id"
+    t.integer  "status_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sections", force: true do |t|
@@ -53,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140222032407) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "flow_id"
+    t.integer  "parent_id"
   end
 
 end

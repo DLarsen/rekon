@@ -1,10 +1,7 @@
-%h1 All Sections
+:css
+  .empty { color: #C14249; }
+  .incomplete { color: #F6AE2F; }
+  .complete { color: #61C73A; }
 
-%table.table
-  %tr
-    %th ID
-    %th Section
-  -@sections.each do |s|
-    %tr
-      %td=s.id
-      %td=link_to s.title, section_path(s)
+%h1 All Sections
+=render 'list', sections: @sections

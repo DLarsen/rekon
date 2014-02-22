@@ -1,0 +1,14 @@
+%table.table
+  %tr
+    %th ID
+    %th Section
+    %th Status
+  -sections.each do |s|
+    %tr
+      %td=s.id
+      %td=link_to s.title, section_path(s)
+      %td
+        -if @status[s.id]
+          %div{class:@status[s.id].status}=@status[s.id].status
+        -else
+          ?

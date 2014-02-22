@@ -11,6 +11,8 @@ Rekon::Application.routes.draw do
 
   get 'earth' => 'earth#index'
 
+  get 'select-project/:id' => 'projects#select', as: 'select_project'
+
   resources :sections
   resources :prompts
 

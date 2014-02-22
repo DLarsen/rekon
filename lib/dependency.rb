@@ -56,8 +56,13 @@ class Dependency
   end
 
   def self.tests
-    puts Dependency.test1 ? "PASS" : "FAIL"
+    puts  Dependency.test1 ? "PASS" : "FAIL"
     puts !Dependency.test2 ? "PASS" : "FAIL"
+    puts  Dependency.test3 ? "PASS" : "FAIL"
+    puts !Dependency.test4 ? "PASS" : "FAIL"
+    puts  Dependency.test5 ? "PASS" : "FAIL"
+    puts  Dependency.test6 ? "PASS" : "FAIL"
+    puts !Dependency.test7 ? "PASS" : "FAIL"
   end
 
   def self.test1
@@ -75,4 +80,51 @@ class Dependency
       Reply.new(answer:"Anything", prompt: p)
       ])
   end
+
+  def self.test3
+    p = Prompt.new(slug:'a')
+    d = Dependency.new("p:a:yes")
+    d.fulfilled_for_replies([
+      Reply.new(answer:"yes", prompt: p)
+      ])
+  end
+
+  def self.test4
+    p = Prompt.new(slug:'a')
+    d = Dependency.new("p:a:yes")
+    d.fulfilled_for_replies([
+      Reply.new(answer:"no", prompt: p)
+      ])
+  end
+
+  def self.test5
+    p1 = Prompt.new(slug:'a')
+    p2 = Prompt.new(slug:'b')
+    d = Dependency.new("p:b:yes")
+    d.fulfilled_for_replies([
+      Reply.new(answer:"yes", prompt: p1),
+      Reply.new(answer:"yes", prompt: p2)
+      ])
+  end
+
+  def self.test6
+    p1 = Prompt.new(slug:'a')
+    p2 = Prompt.new(slug:'b')
+    d = Dependency.new("p:a:yes")
+    d.fulfilled_for_replies([
+      Reply.new(answer:"yes", prompt: p1),
+      Reply.new(answer:"yes", prompt: p2)
+      ])
+  end
+
+  def self.test7
+    p1 = Prompt.new(slug:'a')
+    p2 = Prompt.new(slug:'b')
+    d = Dependency.new("p:c:yes")
+    d.fulfilled_for_replies([
+      Reply.new(answer:"yes", prompt: p1),
+      Reply.new(answer:"yes", prompt: p2)
+      ])
+  end
+
 end

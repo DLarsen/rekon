@@ -1,5 +1,5 @@
 # This is David's throwaway controller
-class EarthController < FlowBaseController
+class EarthController < ProjectBaseController
 
   def index
     @flow = current_flow

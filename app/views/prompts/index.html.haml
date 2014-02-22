@@ -1,12 +1,20 @@
 %h1 All Prompts
 
+%pre=current_project.replies.to_json
+
 %table.table
   %tr
     %th Section
     %th ID
     %th Instructions
+    %th Complete
   -@prompts.each do |p|
     %tr
       %td=p.section.title
       %td=p.id
       %td=link_to p.instructions, prompt_path(p)
+      %td
+        -if @replies[p.id]
+          Yup, #{@replies[p.id].answer}
+        -else
+          Nope
