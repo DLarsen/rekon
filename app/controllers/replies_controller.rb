@@ -49,6 +49,7 @@ class RepliesController < ProjectBaseController
       params.require(:reply).permit(
         :prompt_id,
         :answer,
+        :complete,
         :skipped,
         :not_applicable
       )

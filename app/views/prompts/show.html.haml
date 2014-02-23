@@ -9,6 +9,7 @@
   .panel-body
     =form_for @reply do |form|
       =form.hidden_field :prompt_id
+      =form.hidden_field :complete, value: true
       !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers, @prompt.hint)
       .row
         .col-sm-3
