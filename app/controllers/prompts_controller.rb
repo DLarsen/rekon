@@ -1,10 +1,13 @@
 class PromptsController < ProjectBaseController
 
+  include PromptRouter
+
   before_action :set_prompt, only: [:show, :update]
 
   def index
     @prompts = Prompt.all
     @replies = Hash[current_project.replies.where.not(complete:true).map{|r| [r.prompt.id, r]}]
+    @next_prompt = next_prompt(current_project, current_project.flow.sections.first)
   end
 
   # GET /prompts/1

@@ -59,7 +59,7 @@ class Section < ActiveRecord::Base
     end
   end
 
-  def next_section
+  def next_sibling
     case level
     when 1
       flow.sections.where("sequence > ? AND level = 1", sequence).first

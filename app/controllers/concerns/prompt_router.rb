@@ -2,7 +2,12 @@ module PromptRouter
   include ActiveSupport::Concerns
 
   def next_prompt(project, section)
-    if section.prompts.size
+    if section.nil?
+      ::Rails.logger.info "WE HAVE A NIL SECTION"
+      return nil
+    end
+    if section.prompts.size > 0
+      ::Rails.logger.info "WE HAVE PROMPTS for section #{section.id}"
       prompts = section.prompts.order('sequence desc')
       # we have stuff
       replies = Hash[project
@@ -35,10 +40,22 @@ module PromptRouter
       end
 
       # we found nothing undone... go to next section
+      if section.next_sibling
+        next_prompt(project, section.next_sibling)
+      else
+        next_prompt(project, section.parent.next_sibling)
+      end
 
     else
-      # drill down
+      puts "WE HAVE NO PROMPTS for section #{section.id}"
+      if section.children.size > 0
+        ::Rails.logger.info "  WE HAVE NO CHILDREN"
+        next_prompt(project, section.children.first)
+      else
+        ::Rails.logger.info "  WE HAVE CHILDREN"
+        next_prompt(project, section.next_sibling)
+      end
     end
-    replies = project.replies
+
   end
 end

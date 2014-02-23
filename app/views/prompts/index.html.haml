@@ -1,3 +1,6 @@
+:css
+  .no { color: red; }
+  .yes { color: green; }
 %h1 All Prompts
 
 %pre=current_project.replies.to_json
@@ -15,6 +18,14 @@
       %td=link_to p.instructions.html_safe, prompt_path(p)
       %td
         -if @replies[p.id]
-          Yup, #{@replies[p.id].answer}
+          .yes
+            Yup, #{@replies[p.id].answer}
         -else
-          Nope
+          .no
+            Nope
+
+%h2 Replies
+%pre=@replies.to_json
+
+%h2 Next Prompt
+%pre=@next_prompt.to_json

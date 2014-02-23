@@ -3,7 +3,7 @@ class SectionsController < ProjectBaseController
   include PromptRouter
 
   def index
-    @sections = current_flow.sections.where(parent_id: nil)
+    @sections = current_flow.sections
     @status = Hash[current_project.section_statuses.map{|s| [s.section.id, s]}]
   end
 
