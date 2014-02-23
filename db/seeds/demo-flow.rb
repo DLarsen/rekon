@@ -4,8 +4,8 @@ project = Project.create(name:"Larsen, Gangloff & Larsen Website", flow: flow)
 
 s_overview   = Section.create({flow:flow, level: 1, sequence: 1, title: 'Basics'})
 s_domain     = Section.create({flow:flow, level: 2, sequence: 1, parent: s_overview, title: 'Domain Name'})
-s_name       = Section.create({flow:flow, level: 2, sequence: 1, parent: s_overview, title: 'Name'})
-s_logo       = Section.create({flow:flow, level: 2, sequence: 1, parent: s_overview, title: 'Logo'})
+s_name       = Section.create({flow:flow, level: 2, sequence: 2, parent: s_overview, title: 'Name'})
+s_logo       = Section.create({flow:flow, level: 2, sequence: 3, parent: s_overview, title: 'Logo'})
 
 s_company    = Section.create({flow:flow, level: 1, sequence: 2, title: 'Company'})
 s_mission    = Section.create({flow:flow, level: 2, sequence: 1, parent: s_company, title: 'Mission'})
@@ -22,8 +22,8 @@ s_process    = Section.create({flow:flow, level: 2, sequence: 2, parent: s_servi
 
 s_responses  = Section.create({flow:flow, level: 1, sequence: 6, title: 'Visitor Response', slug: 'responses'})
 s_objectives = Section.create({flow:flow, level: 2, sequence: 1, parent: s_responses, title: 'Objectives'})
-s_contact_us = Section.create({flow:flow, level: 2, sequence: 1, parent: s_responses, title: 'Contact Us'})
-s_newsletter = Section.create({flow:flow, level: 2, sequence: 2, parent: s_responses, title: 'Newsletter'})
+s_contact_us = Section.create({flow:flow, level: 2, sequence: 2, parent: s_responses, title: 'Contact Us'})
+s_newsletter = Section.create({flow:flow, level: 2, sequence: 3, parent: s_responses, title: 'Newsletter'})
 
 p1 = Prompt.create(
   sequence: 1,

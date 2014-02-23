@@ -5,7 +5,8 @@
     %th Level
     %th Section
     %th Status
-    %th Next
+    %th Next Sib
+    %th Prompts
   -sections.each do |s|
     %tr
       %td=s.id
@@ -17,4 +18,7 @@
           %div{class:@status[s.id].status}=@status[s.id].status
         -else
           ?
-      %td=s.next_section
+      %td
+        -if s.next_sibling
+          =s.next_sibling.id
+      %td=s.prompts.count
