@@ -2,25 +2,29 @@
 flow = Flow.create(title:"Basic Brochure Website")
 project = Project.create(name:"Larsen, Gangloff & Larsen Website", flow: flow)
 
-s_overview   = Section.create({flow:flow, level: 1, sequence: 1, title: 'Basics', description: "Before diving deep into the heart of your content, let's get a few initial questions out of the way.<br /><br />This section should only take a few minutes to complete."})
+s_overview   = Section.create({flow:flow, level: 1, sequence: 1, title: 'Basics',
+  description: "Before diving deep into the heart of your content, let's get a few initial questions out of the way.<br /><br />This section should only take a few minutes to complete."})
 s_domain     = Section.create({flow:flow, level: 2, sequence: 1, parent: s_overview, title: 'Domain Name'})
 s_name       = Section.create({flow:flow, level: 2, sequence: 2, parent: s_overview, title: 'Name'})
-s_logo       = Section.create({flow:flow, level: 2, sequence: 3, parent: s_overview, title: 'Logo'})
+#s_logo       = Section.create({flow:flow, level: 2, sequence: 3, parent: s_overview, title: 'Logo'})
 
-s_company    = Section.create({flow:flow, level: 1, sequence: 2, title: 'Company'})
+s_company    = Section.create({flow:flow, level: 1, sequence: 2, title: 'Company',
+  description: "Before diving deep into the heart of your content, let's get a few initial questions out of the way.<br /><br />This section should only take a few minutes to complete."})
 s_mission    = Section.create({flow:flow, level: 2, sequence: 1, parent: s_company, title: 'Mission'})
 s_history    = Section.create({flow:flow, level: 2, sequence: 2, parent: s_company, title: 'History'})
 s_team       = Section.create({flow:flow, level: 2, sequence: 3, parent: s_company, title: 'Team'})
 
 
-s_services   = Section.create({flow:flow, level: 1, sequence: 3, title: 'Services'})
+s_services   = Section.create({flow:flow, level: 1, sequence: 3, title: 'Services',
+  description: "Before diving deep into the heart of your content, let's get a few initial questions out of the way.<br /><br />This section should only take a few minutes to complete."})
 s_mission    = Section.create({flow:flow, level: 2, sequence: 1, parent: s_services, title: 'Description'})
 s_process    = Section.create({flow:flow, level: 2, sequence: 2, parent: s_services, title: 'Process'})
 
 # s_overview   = Section.create({flow:flow, level: 1, sequence: 4, title: 'Background'})
 # s_overview   = Section.create({flow:flow, level: 1, sequence: 5, title: 'Testimonails'})
 
-s_responses  = Section.create({flow:flow, level: 1, sequence: 6, title: 'Visitor Response', slug: 'responses'})
+s_responses  = Section.create({flow:flow, level: 1, sequence: 6, title: 'Visitor Response', slug: 'responses',
+  description: "Before diving deep into the heart of your content, let's get a few initial questions out of the way.<br /><br />This section should only take a few minutes to complete."})
 s_objectives = Section.create({flow:flow, level: 2, sequence: 1, parent: s_responses, title: 'Objectives'})
 s_contact_us = Section.create({flow:flow, level: 2, sequence: 2, parent: s_responses, title: 'Contact Us'})
 s_newsletter = Section.create({flow:flow, level: 2, sequence: 3, parent: s_responses, title: 'Newsletter'})
