@@ -6,3 +6,8 @@
 .mt { margin-top: $box-space; }
 .mt-x { margin-top: $box-space-x; }
 .mt-xx { margin-top: $box-space-xx; }
+
+.no-mb { margin-bottom: 0; }
+.mb { margin-bottom: $box-space; }
+.mb-x { margin-bottom: $box-space-x; }
+.mb-xx { margin-bottom: $box-space-xx; }

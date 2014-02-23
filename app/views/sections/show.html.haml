@@ -4,7 +4,7 @@
 -content_for :nav do
   =render 'sections/nav'
 
-%h1.prompt-instructions=@section.title
+%h1.prompt-instructions.no-mt=@section.title
 
 -if @section.description
   .description!=@section.description

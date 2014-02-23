@@ -1,11 +1,19 @@
-.nav-stacked ul a { padding-left: 30px; }
+// left nav
+//-----------------------------
+
+.nav-stacked .nav-stacked {
+  padding-left: $box-space;
+}
+
+.nav-stacked-timber li a {
+  color: darken($green, 5%);
+}
 
 .nav-stacked-timber {
-  background-color: #EFEFEF;
+  background-color: lighten($gray-lighter, 2%);
   border-top: 1px solid #cdcdcd;
   border-bottom: 1px solid #cdcdcd;
   font-size: 1.2em;
-  margin-bottom: $box-space-x;
 }
 
 .nav-stacked-timber > li.active {
@@ -15,8 +23,27 @@
     color: $gray-dark;
   }
   > a.nav-l1 {
-    font-weight: 900;
+    font-weight: bold;
     background: transparent;
     color: $gray-dark;
   }
+}
+
+.nav-stacked-timber li > a:hover, .nav-stacked-timber li > a:focus {
+  background-color: darken($gray-lighter, 5%);
+}
+
+.nav-stacked-timber ul li > a {
+  border-left: 3px solid transparent;
+}
+
+.nav-stacked-timber ul li.active > a,
+.nav-stacked-timber ul li.active > a:focus {
+  background: transparent;
+  border-left-color: $green;
+}
+
+.nav-stacked-timber ul li.active > a:hover {
+  background: transparent;
+  color: $black;
 }
