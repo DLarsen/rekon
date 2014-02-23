@@ -55,9 +55,7 @@ class RepliesController < ProjectBaseController
         params[:reply][:answer] = params[:reply][:answer_other]
       end
 
-
-      params[:reply][:project_id] = current_project
-
+      params[:reply][:project_id] = current_project.id
 
       params.require(:reply).permit(
         :project_id,

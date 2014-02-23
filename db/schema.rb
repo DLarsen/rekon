@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223013113) do
+ActiveRecord::Schema.define(version: 20140223050015) do
 
   create_table "flows", force: true do |t|
     t.string   "title"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140223013113) do
   create_table "prompts", force: true do |t|
     t.integer  "section_id"
     t.integer  "sequence"
-    t.string   "type_of",           limit: 32
+    t.string   "type_of",           limit: 32, default: "text"
     t.text     "instructions"
     t.text     "suggested_answers"
     t.boolean  "multi_response?"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140223013113) do
     t.string   "slug"
     t.text     "details"
     t.text     "hint"
+    t.boolean  "allow_other"
   end
 
   create_table "replies", force: true do |t|
@@ -60,7 +61,15 @@ ActiveRecord::Schema.define(version: 20140223013113) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "sections" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "sections", force: true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "flow_id"
+    t.integer  "parent_id"
+    t.integer  "level"
+    t.integer  "sequence"
+  end
 
 end

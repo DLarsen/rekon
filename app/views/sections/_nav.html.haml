@@ -1,15 +1,20 @@
-%ul.nav.nav-stacked.nav-pills
+%ul.nav.nav-stacked.nav-pills.nav-stacked-timber
   -@nav_sections.each do |s|
     -if @top_section && @top_section.id == s.id
-      %li
-        =link_to s.title, section_path(s)
+      %li.active
+        =link_to s.title, section_path(s), class: 'nav-l1'
         %ul.nav.nav-stacked.nav-pills
           -s.children.each do |c|
             -if @sub_section && @sub_section.id == c.id
-              %li.active=link_to c.title, section_path(c)
+              %li.active=link_to c.title, section_path(c), class: 'nav-l2'
             -else
-              %li=link_to c.title, section_path(c)
+              %li=link_to c.title, section_path(c), class: 'nav-l2'
     -else
-      %li=link_to s.title, section_path(s)
+      %li=link_to s.title, section_path(s), class: 'nav-l1'
+.mt
+  top
+  %pre=@top_section
 
-%pre.mt=@top_section
+.mt
+  sub
+  %pre=@sub_section

@@ -1,8 +1,13 @@
 // global variables & overrides
 //-----------------------------
 
-$timber-green: #308958;
+$green: #308958;
+$teal: #2E8699;
 $font-family-sans-serif: 'Open Sans', sans-serif;
+
+$border-radius-base: 0;
+
+$panel-default-border: white;
 
 // box model
 $box-space: 1em;
@@ -13,13 +18,21 @@ $box-space-xx: 3em;
 $container-sm: 100%; // @override
 $container-md: 100%; // @override
 
-// nav whatevers
-$navbar-default-bg: $timber-green;
-$navbar-default-border: darken($timber-green, 25%);
+// navbar whatevers
+$navbar-default-bg: $green;
+$navbar-default-border: darken($green, 25%);
 
 $navbar-default-link-color: #fff;
 $navbar-default-color: #fff;
 
+$navbar-margin-bottom: 50px;
+
+
 // button colors
 $btn-primary-color: #fff;
-$btn-primary-bg: $timber-green;
+$btn-primary-bg: $teal;
+
+
+// button colors
+$nav-pills-active-link-hover-color: #444444;
+$nav-pills-active-link-hover-bg: #A9CBD2;

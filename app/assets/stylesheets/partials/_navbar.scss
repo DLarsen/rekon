@@ -1,1 +1,15 @@
-.navbar-brand-timber { font-weight: 900; font-size: 45px;}
+
+
+.navbar-brand-timber { font-weight: 100; font-size: 44px; margin: 20px; }
+
+.navbar-top-timber > li > a,
+.navbar-top-timber .navbar-text {
+  margin: 18px 20px;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.navbar-top-timber > li > a {
+  text-transform: uppercase;
+  font-weight: 900;
+}

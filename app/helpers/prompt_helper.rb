@@ -1,11 +1,11 @@
 module PromptHelper
 
   # generates proper inputs for the type of prompt
-  def prompt_input_factory(form, type_of, answer, suggested_answers = false, hint = false)
+  def prompt_input_factory(form, type_of, answer, suggested_answers = false, hint = false, allow_other = false)
     html = '<div class="row">'
 
     if type_of == 'radio' || type_of == 'checkbox'
-      html << prompt_radio_input(form, type_of == 'radio', answer, suggested_answers)
+      html << prompt_radio_input(form, type_of == 'radio', answer, suggested_answers, allow_other)
     else
       html += '<div class="form-group col-xs-12">'
       if type_of == 'textarea'
@@ -30,7 +30,7 @@ module PromptHelper
   end
 
   # generates radio inputs
-  def prompt_radio_input(form, is_radio, answer, suggested_answers)
+  def prompt_radio_input(form, is_radio, answer, suggested_answers, allow_other)
     html = ''
     has_answered = false
 
@@ -44,7 +44,7 @@ module PromptHelper
         checked = true
       end
 
-      html << '<div class="col-xs-12 col-sm-4 form-group">'
+      html << '<div class="col-xs-12 col-sm-12">'
       html << '<div class="prompt-radio radio">'
       if is_radio
         html += form.radio_button :answer, suggestion, :id => id,
@@ -62,9 +62,11 @@ module PromptHelper
     end
 
     if is_radio
-      html << '<div class="col-xs-12 col-sm-4 form-group">'
-      html += form.text_field :answer_other, :class => 'form-control prompt-radio-other', :placeholder => 'Other',
-        :value => has_answered ? '' : answer
+      html << '<div class="col-xs-12 col-sm-12 form-group">'
+      if allow_other
+        html += form.text_field :answer_other, :class => 'form-control prompt-radio-other', :placeholder => 'Other',
+          :value => has_answered ? '' : answer
+      end
       html << '</div>'
     end
 

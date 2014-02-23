@@ -10,6 +10,7 @@ Rekon::Application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   get 'earth' => 'earth#index'
+  get 'results' => 'results#index', as: 'results'
 
   get 'select-project/:id' => 'projects#select', as: 'select_project'
 

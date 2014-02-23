@@ -3,7 +3,7 @@ module PromptRouter
 
   def next_prompt(project, section)
     if section.prompts.size
-      prompts = section.prompts
+      prompts = section.prompts.order('sequence desc')
       # we have stuff
       replies = Hash[project
                   .replies
@@ -23,13 +23,15 @@ module PromptRouter
 
       i = 0
       done = false
-      loop do
-        p = prompts[i]
-        done = replies[p.id].nil?
+      if prompts.size > 0
+        loop do
+          p = prompts[i]
+          done = replies[p.id].nil?
 
-        return p if (done)
-        i += 1
-        break unless i < prompts.size
+          return p if (done)
+          i += 1
+          break unless i < prompts.size
+        end
       end
 
       # we found nothing undone... go to next section

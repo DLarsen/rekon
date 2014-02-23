@@ -4,3 +4,10 @@
 .prompt-radio {
   @include text-overflow;
 }
+
+
+.prompt-instructions {
+  color: $teal;
+  font-size: 32px;
+  font-style: italic;
+}

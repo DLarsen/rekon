@@ -1,1 +1,21 @@
-.nav-stacked ul { margin-left: 30px; }
+.nav-stacked ul a { padding-left: 30px; }
+
+.nav-stacked-timber {
+  background-color: #EFEFEF;
+  border-top: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+  font-size: 1.2em;
+}
+
+.nav-stacked-timber > li.active {
+  &:hover,
+  &:focus > a {
+    background: transparent;
+    color: $gray-dark;
+  }
+  > a.nav-l1 {
+    font-weight: 900;
+    background: transparent;
+    color: $gray-dark;
+  }
+}

@@ -2,16 +2,10 @@
 flow = Flow.create(title:"Lawyer")
 project = Project.create(name:"Brooks & Burch", flow: flow)
 
-section_audience          = Section.create({flow:flow, level: 1, title: 'Audience', slug: 'audience'})
-section_audience_overview = Section.create({flow:flow, level: 2, parent: section_audience, title: 'Overview', slug: 'audience-overview'})
-section_audience_existing = Section.create({flow:flow, level: 2, parent: section_audience, title: 'Existing Clients', slug: 'existing-clients'})
-section_audience_non      = Section.create({flow:flow, level: 2, parent: section_audience, title: 'Non-Clients', slug: 'non-clients'})
-
-section_expertise = Section.create({flow:flow, level: 1, title: 'Expertise', slug: 'expertise'})
-section_services  = Section.create({flow:flow, level: 1, title: 'Services', slug: 'services'})
-section_contact   = Section.create({flow:flow, level: 1, title: 'Contact', slug: 'contact'})
-section_about     = Section.create({flow:flow, level: 1, title: 'About', slug: 'about'})
-section_team      = Section.create({flow:flow, level: 1, title: 'Team', slug: 'team'})
+section_audience          = Section.create({flow:flow, level: 1, sequence: 1, title: 'Audience', slug: 'audience'})
+section_audience_overview = Section.create({flow:flow, level: 2, sequence: 1, parent: section_audience, title: 'Overview', slug: 'audience-overview'})
+section_audience_existing = Section.create({flow:flow, level: 2, sequence: 2, parent: section_audience, title: 'Existing Clients', slug: 'existing-clients'})
+section_audience_non      = Section.create({flow:flow, level: 2, sequence: 3, parent: section_audience, title: 'Non-Clients', slug: 'non-clients'})
 
 # AUDIENCE
 p1 = Prompt.create(
@@ -19,7 +13,7 @@ p1 = Prompt.create(
   section: section_audience_overview,
   slug: 'audience-priority',
   instructions: "Who are your most important website visitors?",
-  details: "Yes, we're forcing you to pick one.  They can't ALL be the most important.",
+  details: "<b>Example:</b> Yes, we're forcing you to pick one.  They can't ALL be the most important.",
   type_of: 'radio',
   suggested_answers: ["Existing Clients", "Warm Leads", "Cold Leads"]
 )
@@ -84,18 +78,101 @@ p4 = Prompt.create(
   ]
 )
 
-# EXPERTISE
+
+section_cheeks          = Section.create({flow:flow, level: 1, sequence: 2, title: 'Audience', slug: 'audience'})
+section_audience_overview = Section.create({flow:flow, level: 2, sequence: 1, parent: section_cheeks, title: 'Overview', slug: 'audience-overview'})
+section_audience_existing = Section.create({flow:flow, level: 2, sequence: 2, parent: section_cheeks, title: 'Existing Clients', slug: 'existing-clients'})
+section_audience_non      = Section.create({flow:flow, level: 2, sequence: 3, parent: section_cheeks, title: 'Non-Clients', slug: 'non-clients'})
+
+# section_expertise = Section.create({flow:flow, level: 1, sequence: 2, title: 'Expertise', slug: 'expertise'})
+# section_services  = Section.create({flow:flow, level: 1, sequence: 3, title: 'Services', slug: 'services'})
+# section_contact   = Section.create({flow:flow, level: 1, sequence: 4, title: 'Contact', slug: 'contact'})
+# section_about     = Section.create({flow:flow, level: 1, sequence: 5, title: 'About', slug: 'about'})
+# section_team      = Section.create({flow:flow, level: 1, sequence: 6, title: 'Team', slug: 'team'})
+
+# AUDIENCE
 p1 = Prompt.create(
-  sequence: 7,
-  section: section_expertise,
-  slug: 'education-care',
-  instructions: "How much do website visitors care about your education?",
-  details: "The website is for them.  Let's give them what they want",
+  sequence: 2,
+  section: section_audience_overview,
+  slug: 'audience-priority',
+  instructions: "Who are your most important website visitors?",
+  details: "<b>Example:</b> Yes, we're forcing you to pick one.  They can't ALL be the most important.",
   type_of: 'radio',
-  suggested_answers: ["Not Important", "Somewhat Important", "Very Important"]
+  suggested_answers: ["Existing Clients", "Warm Leads", "Cold Leads"]
 )
 
-Reply.create(prompt:p1, answer: "OK", complete: true, project: project)
+p2 = Prompt.create(
+  sequence: 1,
+  section: section_audience_existing,
+  slug: 'existing-reasons',
+  instructions: "Why would an existing client visit your website?",
+  details: "What value can be gained from visiting you site?",
+  type_of: 'checkbox',
+  suggested_answers: [
+    "Find street address",
+    "Find email",
+    "Find other information",
+    "Submit information"
+  ]
+)
+
+Prompt.create(
+  sequence: 4,
+  section: section_audience_existing,
+  slug: 'non-reasons',
+  instructions: "How often would you expect existing clients to use your website?",
+  type_of: 'text'
+)
+
+Prompt.create(
+  sequence: 3,
+  section: section_audience_existing,
+  slug: 'non-reasons',
+  instructions: "Describe your company history in a way that existing clients would appreciate.",
+  type_of: 'textarea'
+)
+
+p3 = Prompt.create(
+  sequence: 5,
+  section: section_audience_non,
+  slug: 'non-reasons',
+  instructions: "What do you expect to typically occur first for someone who is NOT a client?",
+  details: "First interaction...",
+  type_of: 'radio',
+  suggested_answers: [
+    "Visited website",
+    "Spoke with someone at your firm",
+    "Hard to say"
+  ]
+)
+
+p4 = Prompt.create(
+  sequence: 6,
+  section: section_audience_non,
+  slug: 'non-reasons',
+  instructions: "Why would someone who is NOT a client visit your website?",
+  details: "Yes, we're forcing you to pick one.  They can't ALL be the most important.",
+  type_of: 'checkbox',
+  suggested_answers: [
+    "Learn more about your area of expertise",
+    "Find email",
+    "Find other information",
+    "Submit information"
+  ]
+)
+
+# # EXPERTISE
+# p1 = Prompt.create(
+#   sequence: 7,
+#   section: section_expertise,
+#   slug: 'education-care',
+#   instructions: "How much do website visitors care about your education?",
+#   details: "The website is for them.  Let's give them what they want",
+#   type_of: 'radio',
+#   suggested_answers: ["Not Important", "Somewhat Important", "Very Important"]
+# )
+
+# Reply.create(prompt:p1, answer: "OK", complete: true, project: project)
 #Reply.create(prompt:prompt2, answer: "OK", complete: false, project: project)
 
 # Prompt.create(

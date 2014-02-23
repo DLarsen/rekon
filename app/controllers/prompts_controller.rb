@@ -11,6 +11,7 @@ class PromptsController < ProjectBaseController
   # GET /prompts/1.json
   def show
     @top_section = @prompt.top_section
+    @sub_section = @prompt.section
     set_replies(@prompt)
   end
 

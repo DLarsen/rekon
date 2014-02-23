@@ -9,18 +9,22 @@
 #  updated_at :datetime
 #  flow_id    :integer
 #  parent_id  :integer
-#  level      :ingeter
-#  sequence   :ingeter
+#  level      :integer
+#  sequence   :integer
 #
 
 class Section < ActiveRecord::Base
   # we will want a way to get top-level prompts OR our entry points are sub-sections
-  has_many :prompts, -> { order('sequence desc')}
+  has_many :prompts, -> { order('sequence asc')}
   belongs_to :flow
 
-  has_many :children, :class_name => "Section",
-    :foreign_key => "parent_id", -> { order('sequence desc')}
+  has_many :children, -> { order('sequence asc')}, :class_name => "Section",
+    :foreign_key => "parent_id"
   belongs_to :parent, :class_name => "Section"
+
+  def to_s
+    self.to_json
+  end
 
   def top_section
     case level
@@ -44,12 +48,23 @@ class Section < ActiveRecord::Base
     end
   end
 
+  def first_child
+    case level
+    when 1
+      children.first
+    when 2
+      children.first
+    when 3
+      nil
+    end
+  end
+
   def next_section
     case level
     when 1
-      nil
+      flow.sections.where("sequence > ? AND level = 1", sequence).first
     when 2
-      self
+      parent.children.where("sequence > ? AND parent_id = ?", sequence, parent_id).first
     when 3
       parent
     end

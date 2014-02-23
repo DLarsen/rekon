@@ -5,7 +5,7 @@
 #  id                :integer          not null, primary key
 #  section_id        :integer
 #  sequence          :integer
-#  type_of           :string(32)
+#  type_of           :string(32)       default("text")
 #  instructions      :text
 #  suggested_answers :text
 #  multi_response?   :boolean
@@ -15,6 +15,7 @@
 #  slug              :string(255)
 #  details           :text
 #  hint              :text
+#  allow_other       :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
