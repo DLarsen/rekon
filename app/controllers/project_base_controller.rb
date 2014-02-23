@@ -15,7 +15,7 @@ class ProjectBaseController < ApplicationController
 
   private
   def nav_sections
-    @nav_sections = current_flow.sections.where(parent_id: nil)
+    @nav_sections ||= current_flow.sections.where(parent_id: nil)
   end
 
 end

@@ -9,6 +9,8 @@
 #  updated_at :datetime
 #  flow_id    :integer
 #  parent_id  :integer
+#  level      :ingeter
+#  sequence   :ingeter
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

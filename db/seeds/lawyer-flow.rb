@@ -2,19 +2,20 @@
 flow = Flow.create(title:"Lawyer")
 project = Project.create(name:"Brooks & Burch", flow: flow)
 
-section_audience           = Section.create({flow:flow, title: 'Audience', slug: 'audience'})
-section_audience_overview  = Section.create({flow:flow, parent: section_audience, title: 'Overview', slug: 'audience-overview'})
-section_audience_existing  = Section.create({flow:flow, parent: section_audience, title: 'Existing Clients', slug: 'existing-clients'})
-section_audience_non      = Section.create({flow:flow, parent: section_audience, title: 'Non-Clients', slug: 'non-clients'})
+section_audience          = Section.create({flow:flow, level: 1, title: 'Audience', slug: 'audience'})
+section_audience_overview = Section.create({flow:flow, level: 2, parent: section_audience, title: 'Overview', slug: 'audience-overview'})
+section_audience_existing = Section.create({flow:flow, level: 2, parent: section_audience, title: 'Existing Clients', slug: 'existing-clients'})
+section_audience_non      = Section.create({flow:flow, level: 2, parent: section_audience, title: 'Non-Clients', slug: 'non-clients'})
 
-section_expertise = Section.create({flow:flow, title: 'Expertise', slug: 'expertise'})
-section_services  = Section.create({flow:flow, title: 'Services', slug: 'services'})
-section_contact   = Section.create({flow:flow, title: 'Contact', slug: 'contact'})
-section_about     = Section.create({flow:flow, title: 'About', slug: 'about'})
-section_team      = Section.create({flow:flow, title: 'Team', slug: 'team'})
+section_expertise = Section.create({flow:flow, level: 1, title: 'Expertise', slug: 'expertise'})
+section_services  = Section.create({flow:flow, level: 1, title: 'Services', slug: 'services'})
+section_contact   = Section.create({flow:flow, level: 1, title: 'Contact', slug: 'contact'})
+section_about     = Section.create({flow:flow, level: 1, title: 'About', slug: 'about'})
+section_team      = Section.create({flow:flow, level: 1, title: 'Team', slug: 'team'})
 
 # AUDIENCE
 p1 = Prompt.create(
+  sequence: 2,
   section: section_audience_overview,
   slug: 'audience-priority',
   instructions: "Who are your most important website visitors?",
@@ -24,6 +25,7 @@ p1 = Prompt.create(
 )
 
 p2 = Prompt.create(
+  sequence: 1,
   section: section_audience_existing,
   slug: 'existing-reasons',
   instructions: "Why would an existing client visit your website?",
@@ -38,6 +40,7 @@ p2 = Prompt.create(
 )
 
 Prompt.create(
+  sequence: 4,
   section: section_audience_existing,
   slug: 'non-reasons',
   instructions: "How often would you expect existing clients to use your website?",
@@ -45,6 +48,7 @@ Prompt.create(
 )
 
 Prompt.create(
+  sequence: 3,
   section: section_audience_existing,
   slug: 'non-reasons',
   instructions: "Describe your company history in a way that existing clients would appreciate.",
@@ -52,6 +56,7 @@ Prompt.create(
 )
 
 p3 = Prompt.create(
+  sequence: 5,
   section: section_audience_non,
   slug: 'non-reasons',
   instructions: "What do you expect to typically occur first for someone who is NOT a client?",
@@ -65,6 +70,7 @@ p3 = Prompt.create(
 )
 
 p4 = Prompt.create(
+  sequence: 6,
   section: section_audience_non,
   slug: 'non-reasons',
   instructions: "Why would someone who is NOT a client visit your website?",
@@ -80,6 +86,7 @@ p4 = Prompt.create(
 
 # EXPERTISE
 p1 = Prompt.create(
+  sequence: 7,
   section: section_expertise,
   slug: 'education-care',
   instructions: "How much do website visitors care about your education?",

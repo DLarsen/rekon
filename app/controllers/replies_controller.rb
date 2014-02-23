@@ -2,6 +2,9 @@ class RepliesController < ProjectBaseController
 
   before_action :set_reply, only: [:update]
 
+
+  include PromptRouter
+
   # POST /replies
   # POST /replies.json
   def create
@@ -9,7 +12,10 @@ class RepliesController < ProjectBaseController
 
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to prompt_url(@reply.prompt_id), notice: 'Reply was successfully created.' }
+        format.html do
+          n = next_prompt(current_project, @reply.prompt.section)
+          redirect_to prompt_url(n.id), notice: 'Reply was successfully created.'
+        end
         format.json { render action: 'show', status: :created, location: @reply }
       else
         format.html { render action: 'new' }
@@ -23,7 +29,10 @@ class RepliesController < ProjectBaseController
   def update
     respond_to do |format|
       if @reply.update(reply_params)
-        format.html { redirect_to prompt_url(@reply.prompt_id), notice: 'Reply was successfully updated.' }
+
+        n = next_prompt(current_project, @reply.prompt.section)
+
+        format.html { redirect_to prompt_url(n.id), notice: 'Reply was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'show' }
@@ -44,7 +53,12 @@ class RepliesController < ProjectBaseController
         params[:reply][:answer] = params[:reply][:answer_other]
       end
 
+
+      params[:reply][:project_id] = current_project
+
+
       params.require(:reply).permit(
+        :project_id,
         :prompt_id,
         :answer,
         :skipped,
@@ -52,5 +66,7 @@ class RepliesController < ProjectBaseController
       )
 
     end
+
+
 
 end

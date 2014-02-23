@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222182856) do
+ActiveRecord::Schema.define(version: 20140223013113) do
 
   create_table "flows", force: true do |t|
     t.string   "title"
@@ -60,13 +60,7 @@ ActiveRecord::Schema.define(version: 20140222182856) do
     t.datetime "updated_at"
   end
 
-  create_table "sections", force: true do |t|
-    t.string   "title"
-    t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "flow_id"
-    t.integer  "parent_id"
-  end
+# Could not dump table "sections" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

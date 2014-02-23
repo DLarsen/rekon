@@ -11,11 +11,13 @@
     %tr
       %th Section
       %th ID
+      %th Sequence
       %th Instructions
     -@section.prompts.each do |p|
       %tr
         %td=p.section.title
         %td=p.id
+        %td=p.sequence
         %td=link_to p.instructions.html_safe, prompt_path(p)
 
 -if @section.children.size > 0
