@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title= "timber"
+    %title= "Timber"
     %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic", rel: "stylesheet", type: "text/css"}/
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = csrf_meta_tags
@@ -29,15 +29,25 @@
               %li.navbar-text
                 #{current_flow.title} :
                 #{current_project.name}
-            %li=link_to "My Account", "#"
-            %li=link_to "Results", results_path
-            %li=link_to "Sign Out", "#"
+            %li
+              =link_to "#" do
+                =fa_icon 'user'
+                My Account
+            %li
+              =link_to results_path do
+                =fa_icon 'list-alt'
+                Results
+            %li
+              =link_to "#" do
+                =fa_icon 'sign-out'
+                Sign Out
+
     .container.body-container
       .row.content-container
         .col-xs-12
           -if content_for?(:nav)
             .row
-              .col-sm-3
+              .col-sm-3.mb-x
                 = yield :nav
               .col-sm-9
                 = yield

@@ -1,7 +1,7 @@
-%h1 Select a Project
+%h1.no-mt Select a Project
 
-%ul
-  -current_user.projects.each do |p|
-    %li
-      =link_to p.name, p.flow.sections.first
-      %small.text-muted=p.flow.title
+-current_user.projects.each do |project|
+  %h3
+    =link_to project.name, select_project_path(project)
+    %small.text-muted=project.flow.title
+

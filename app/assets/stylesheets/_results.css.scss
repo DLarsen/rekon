@@ -1,0 +1,16 @@
+// results page
+//-----------------------------
+
+.results-child {
+  padding-left: 2%;
+}
+
+.result-prompt {
+  border-top: 1px solid $gray-lighter;
+  padding-top: .5em;
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}

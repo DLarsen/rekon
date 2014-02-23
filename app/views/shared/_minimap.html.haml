@@ -1,8 +1,9 @@
 -coming_soon = (!@minimap or (@minimap[:completed].length < 1 and !@minimap[:added]))
 .minimap{ class: ('minimap-close' if coming_soon) }
+  %p Site Overview
   -if coming_soon
     %p.text-muted.text-center
-      %strong Your site. Coming soon...
+      %strong Coming soon...
   -else
     .minimap-body
       -@minimap[:completed].each do |reply|
