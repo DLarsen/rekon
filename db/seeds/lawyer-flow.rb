@@ -27,7 +27,7 @@ p2 = Prompt.create(
   section: section_audience_existing,
   slug: 'existing-reasons',
   instructions: "Why would an existing client visit your website?",
-  details: "Give a compelling value-add that only you offer or a guarantee.",
+  details: "What value can be gained from visiting you site?",
   type_of: 'checkbox',
   suggested_answers: [
     "Find street address",
