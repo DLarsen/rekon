@@ -5,57 +5,30 @@
 
 %p.prompt-details!= @prompt.details
 
-<<<<<<< HEAD
 =form_for @reply do |form|
-
   =form.hidden_field :prompt_id
+  =form.hidden_field :complete, value: true
   !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers, @prompt.hint)
-
   .row
-    .col-sm-3
-      =link_to "Back", :back, class: 'btn btn-default'
     .col-sm-3
       .checkbox.prompt-radio
         %label{ title: 'I don\'t want to answer this' }
           =form.check_box(:skipped)
           Skip?
-    .col-sm-3
+    .col-sm-4
       .checkbox.prompt-radio
         %label{ title: 'This is not applicable to me' }
           =form.check_box(:not_applicable)
           Not Applicable?
-    .col-sm-3.text-right
+  .row
+    .col-xs-6
+      =link_to section_path(@prompt.section_id), class: 'btn btn-default' do
+        =fa_icon 'chevron-circle-left'
+        Back
+    .col-xs-6.text-right
       %button.btn.btn-primary
         Continue
         =fa_icon 'chevron-circle-right'
-=======
-.panel.panel-default
-  .panel-body
-    =form_for @reply do |form|
-      =form.hidden_field :prompt_id
-      =form.hidden_field :complete, value: true
-      !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers, @prompt.hint)
-      .row
-        .col-sm-3
-          .checkbox.prompt-radio
-            %label{ title: 'I don\'t want to answer this' }
-              =form.check_box(:skipped)
-              Skip?
-        .col-sm-4
-          .checkbox.prompt-radio
-            %label{ title: 'This is not applicable to me' }
-              =form.check_box(:not_applicable)
-              Not Applicable?
-      .row
-        .col-xs-6
-          =link_to section_path(@prompt.section_id), class: 'btn btn-default' do
-            =fa_icon 'chevron-circle-left'
-            Back
-        .col-xs-6.text-right
-          %button.btn.btn-primary
-            Continue
-            =fa_icon 'chevron-circle-right'
->>>>>>> 1cb33c19f8110e94d11709c26b1e55689536db5e
 
 %pre=@prompt.to_json
 
