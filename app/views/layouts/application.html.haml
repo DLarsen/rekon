@@ -29,9 +29,19 @@
               %li.navbar-text
                 #{current_flow.title} :
                 #{current_project.name}
-            %li=link_to "My Account", "#"
-            %li=link_to "Results", results_path
-            %li=link_to "Sign Out", "#"
+            %li
+              =link_to "#" do
+                =fa_icon 'user'
+                My Account
+            %li
+              =link_to results_path do
+                =fa_icon 'list-alt'
+                Results
+            %li
+              =link_to "#" do
+                =fa_icon 'sign-out'
+                Sign Out
+
     .container.body-container
       .row.content-container
         .col-xs-12
