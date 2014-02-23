@@ -1,11 +1,12 @@
 -sections.each do |section|
-  %h3
+  %h3{ class: ('section-child' if section.level != 1) }
     =link_to section.title, section_path(section), class: 'section-link'
-    %small.text-muted
-      =pluralize(section.prompts.count, 'Prompt')
-    -if @status[section.id]
-      %span.label.label-default
-        @status[s.id].status
-    -else
-      %small.label.label-success
-        New
+    -if section.level != 1
+      %small.text-muted
+        =pluralize(section.prompts.count, 'Prompt')
+      -if @status[section.id]
+        %span.label.label-default
+          @status[s.id].status
+      -else
+        %small.label.label-success
+          New
