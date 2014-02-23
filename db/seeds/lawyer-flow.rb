@@ -44,6 +44,13 @@ Prompt.create(
   type_of: 'text'
 )
 
+Prompt.create(
+  section: section_audience_existing,
+  slug: 'non-reasons',
+  instructions: "Describe your company history in a way that existing clients would appreciate.",
+  type_of: 'textarea'
+)
+
 p3 = Prompt.create(
   section: section_audience_non,
   slug: 'non-reasons',
