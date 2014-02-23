@@ -112,3 +112,15 @@ $minimap-width: 110px;
   }
 }
 
+// the showcase is what we want to draw attention to
+.minimap-showcase {
+  background: $yellow;
+  // slow it down
+  @include experimental('animation-duration', 2s);
+}
+.minimap-showcase-initial {
+  display: none;
+}
+.minimap-showcase-final {
+  background: transparent;
+}
