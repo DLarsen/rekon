@@ -5,7 +5,7 @@ module PromptHelper
     html = '<div class="row">'
 
     if type_of == 'radio' || type_of == 'checkbox'
-      html << prompt_radio_input(form, type_of == 'radio', answer, suggested_answers)
+      html += prompt_radio_input(form, type_of == 'radio', answer, suggested_answers)
     else
       html += '<div class="form-group col-xs-12">'
       if type_of == 'textarea'
@@ -37,25 +37,17 @@ module PromptHelper
     suggested_answers.each_with_index do |suggestion, i|
       id = 'prompt_replies_answer_' + i.to_s
       checked = false
-      if is_prompt_item_checked(is_radio, answer, suggestion)
+      if is_prompt_item_checked(true, answer, suggestion)
         has_answered = true
         checked = true
-      elsif is_prompt_item_checked(is_radio, answer, i)
+      elsif is_prompt_item_checked(false, answer, i)
         checked = true
       end
 
       html << '<div class="col-xs-12 col-sm-4 form-group">'
       html << "<div class=\"prompt-radio radio\" title=\"#{suggestion}\">"
-      if is_radio
-        html += form.radio_button :answer, suggestion, :id => id,
-          :class => 'prompt-radio-input', :checked => checked
-      else
-        form.fields_for :answer, :index do |checkbox_form|
-          html += checkbox_form.check_box i, :id => id,
-            :class => 'prompt-radio-input', :checked => checked
-        end
-      end
-      html += ' '
+      html += render_prompt_item(form, is_radio, checked, id, is_radio ? suggestion : i)
+      html << ' '
       html += form.label :answer, suggestion, :for => id
 
       html << '</div></div>'
@@ -69,6 +61,21 @@ module PromptHelper
     end
 
     html
+  end
+
+  # renders individual radio/check boxes
+  def render_prompt_item(form, is_radio, checked, id, value)
+    html = ''
+    if is_radio
+      html += form.radio_button :answer, value, :id => id,
+        :class => 'prompt-radio-input', :checked => checked
+    else
+      form.fields_for :answer, :index do |checkbox_form|
+        html += checkbox_form.check_box value, :id => id,
+          :class => 'prompt-radio-input', :checked => checked
+      end
+    end
+    html.html_safe
   end
 
   # confirms whether or not radio/checkbox is checked by the value
