@@ -27,12 +27,11 @@ class ProjectBaseController < ApplicationController
         reply = flash[:reply_exclude]
       end
 
-      logger.fatal "the reply is: #{reply}"
       @minimap = {
         completed: Reply.project_completed(session[:project_id], reply),
         added: reply ? Reply.find(reply) : false
       }
-      logger.fatal @minimap
+      logger.fatal "minimap is #{@minimap}"
     end
 
 end

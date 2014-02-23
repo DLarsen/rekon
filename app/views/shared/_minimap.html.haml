@@ -1,28 +1,15 @@
-.minimap
-  .minimap-body
-    .minimap-text.minimap-text-header
-    .minimap-text.minimap-text-content
-    .minimap-icon.minimap-media
-    .minimap-text.minimap-text-content
-    .minimap-text.minimap-text-header
-    .minimap-text.minimap-text-content
-    .minimap-text.minimap-text-header
-    .minimap-text.minimap-text-content
-    .minimap-text.minimap-list
-    .minimap-text.minimap-text-content
-    .minimap-text.minimap-text-content
-    .minimap-icon.minimap-media
-    .minimap-text.minimap-text-content
-    .minimap-text.minimap-text-header
-    .minimap-text.minimap-text-content
-    .minimap-text.minimap-text-header
-    .minimap-text.minimap-text-content
-    .minimap-text.minimap-list
-    .minimap-showcase.minimap-showcase-initial
-      .minimap-text.minimap-text-header
-      .minimap-text.minimap-text-content
-      .minimap-text.minimap-list
-      .minimap-text.minimap-text-content
+-coming_soon = (!@minimap or (@minimap[:completed].length < 1 and !@minimap[:added]))
+.minimap{ class: ('minimap-close' if coming_soon) }
+  -if coming_soon
+    %p.text-muted.text-center
+      %strong Your site. Coming soon...
+  -else
+    .minimap-body
+      -@minimap[:completed].each do |reply|
+        =render :partial => 'shared/minimap_item', :locals => { :type_of => reply.prompt.type_of }
+      -if @minimap[:added]
+        .minimap-showcase.minimap-showcase-initial
+          =render :partial => 'shared/minimap_item', :locals => { :type_of => @minimap[:added].prompt.type_of }
 
   .minimap-toggle{ 'data-toggle' => "tooltip", 'data-placement' => "left", 'data-container' => 'body', 'title' => "Toggle mini map" }
     =fa_icon 'caret-square-o-right', class: 'fa-fw minimap-action-close'
