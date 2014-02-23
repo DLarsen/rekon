@@ -46,7 +46,7 @@ p1 = Prompt.create(
   sequence: 2,
   section: s_domain,
   instructions: "What is your domain name?",
-  details: "<b>Exapmle:</b> www.contoso.com",
+  details: "<b>Example:</b> www.contoso.com",
   type_of: 'text'
 )
 
