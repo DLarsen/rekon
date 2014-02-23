@@ -1,11 +1,11 @@
 -sections.each do |section|
   %h3
     =link_to section.title, section_path(section), class: 'section-link'
-    %span.badge
+    %small.text-muted
       =pluralize(section.prompts.count, 'Prompt')
     -if @status[section.id]
       %span.label.label-default
         @status[s.id].status
     -else
-      %span.label.label-success
+      %small.label.label-success
         New
