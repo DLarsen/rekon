@@ -4,7 +4,7 @@ module PromptRouter
   def next_prompt(project, section)
     if section.nil?
       ::Rails.logger.info "WE HAVE A NIL SECTION"
-      return nil
+      return finished_path
     end
     if section.prompts.size > 0
       ::Rails.logger.info "WE HAVE PROMPTS for section #{section.id}"

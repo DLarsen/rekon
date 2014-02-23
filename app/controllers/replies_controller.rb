@@ -15,7 +15,7 @@ class RepliesController < ProjectBaseController
         format.html do
           set_reply_exclusion(@reply.id)
           n = next_prompt(current_project, @reply.prompt.section)
-          redirect_to prompt_url(n.id), notice: 'Reply was successfully created.'
+          redirect_to n, notice: 'Reply was successfully created.'
         end
         format.json { render action: 'show', status: :created, location: @reply }
       else
@@ -33,7 +33,7 @@ class RepliesController < ProjectBaseController
         set_reply_exclusion(@reply.id)
         n = next_prompt(current_project, @reply.prompt.section)
 
-        format.html { redirect_to prompt_url(n.id), notice: 'Reply was successfully updated.' }
+        format.html { redirect_to n, notice: 'Reply was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'show' }
