@@ -11,6 +11,7 @@ Rekon::Application.routes.draw do
 
   get 'earth' => 'earth#index'
   get 'results' => 'results#index', as: 'results'
+  get 'finished' => 'finished#index', as: 'finished'
 
   get 'select-project/:id' => 'projects#select', as: 'select_project'
 

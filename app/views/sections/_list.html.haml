@@ -7,6 +7,7 @@
     %th Status
     %th Next Sib
     %th Prompts
+    %th Answered
   -sections.each do |s|
     %tr
       %td=s.id
@@ -22,3 +23,4 @@
         -if s.next_sibling
           =s.next_sibling.id
       %td=s.prompts.count
+      %td=@answered[s.id]
