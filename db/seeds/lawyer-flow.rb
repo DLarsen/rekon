@@ -41,13 +41,15 @@ Prompt.create(
   section: section_audience_existing,
   slug: 'non-reasons',
   instructions: "How often would you expect existing clients to use your website?",
-  type_of: 'text'
+  type_of: 'text',
+  hint: 'e.g. "3 times a week" or "Once a month"'
 )
 
 Prompt.create(
   section: section_audience_existing,
   slug: 'non-reasons',
   instructions: "Describe your company history in a way that existing clients would appreciate.",
+  details: 'Tell us about how you have solved client\'s problems in the past or possibly how you overcame a trial to found your company.',
   type_of: 'textarea'
 )
 
@@ -88,7 +90,7 @@ p1 = Prompt.create(
   suggested_answers: ["Not Important", "Somewhat Important", "Very Important"]
 )
 
-Reply.create(prompt:p1, answer: "OK", complete: true, project: project)
+Reply.create(prompt:p1, answer: "Somewhat Important", complete: true, project: project)
 #Reply.create(prompt:prompt2, answer: "OK", complete: false, project: project)
 
 # Prompt.create(
