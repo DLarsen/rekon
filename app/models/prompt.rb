@@ -16,7 +16,6 @@
 #  details           :text
 #  hint              :text
 #  allow_other       :boolean
-#
 
 class Prompt < ActiveRecord::Base
 

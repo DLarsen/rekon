@@ -3,5 +3,5 @@
 %ul
   -current_user.projects.each do |p|
     %li
-      =link_to p.name, select_project_path(p)
+      =link_to p.name, p.flow.sections.first
       %small.text-muted=p.flow.title

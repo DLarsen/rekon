@@ -12,6 +12,7 @@ class RepliesController < ProjectBaseController
 
     respond_to do |format|
       if @reply.save
+        current_project.update_section_status(@reply.prompt.top_section)
         format.html do
           set_reply_exclusion(@reply.id)
           n = next_prompt(current_project, @reply.prompt.section)
@@ -30,6 +31,7 @@ class RepliesController < ProjectBaseController
   def update
     respond_to do |format|
       if @reply.update(reply_params)
+        current_project.update_section_status(@reply.prompt.top_section)
         set_reply_exclusion(@reply.id)
         n = next_prompt(current_project, @reply.prompt.section)
 
