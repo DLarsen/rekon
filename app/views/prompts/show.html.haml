@@ -22,16 +22,10 @@
           Not Applicable?
   .row.mt-xx
     .col-xs-6
-      =link_to section_path(@prompt.section_id), class: 'btn btn-default' do
+      =link_to section_path(@prompt.section_id), class: 'btn btn-default btn-lg' do
         =fa_icon 'chevron-circle-left'
         Back
     .col-xs-6.text-right
-      %button.btn.btn-primary
+      %button.btn.btn-primary.btn-lg
         Continue
         =fa_icon 'chevron-circle-right'
--#
-  %pre=@prompt.to_json
-
-  Replies
-  -@prompt.replies.each do |reply|
-    %pre=reply.to_json

@@ -21,7 +21,7 @@ module PromptHelper
 
   # genrates normal text prompt
   def prompt_text(form, answer, hint)
-    form.text_field :answer, :class => 'form-control', :placeholder => hint
+    form.text_field :answer, :class => 'form-control input-lg', :placeholder => hint
   end
 
   # generates prompt textarea
@@ -44,7 +44,7 @@ module PromptHelper
         checked = true
       end
 
-      html << '<div class="col-xs-12 col-sm-12">'
+      html << '<div class="col-xs-12">'
       html << "<div class=\"prompt-radio radio\" title=\"#{suggestion}\">"
       html += render_prompt_item(form, is_radio, checked, id, is_radio ? suggestion : i)
       html << ' '
