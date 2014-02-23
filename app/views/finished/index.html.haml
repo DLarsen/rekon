@@ -2,4 +2,8 @@
   =render 'sections/nav'
 
 %h1.no-mt Finished!
-%p Great job. You finished your first section.
+%p Great job. We will let your developer know of your progress.
+.mt-x
+  %button.btn.btn-primary.btn-lg
+    Send an Email
+  =link_to 'Results', results_url, class: 'btn btn-default btn-lg'

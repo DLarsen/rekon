@@ -120,8 +120,8 @@ p1 = Prompt.create(
 p1 = Prompt.create(
   sequence: 3,
   section: s_team,
-  instructions: "What is the first teammember's name?",
-  details: "<b>Hint:</b> Use first name or full name... whateer you want to appear on the site.",
+  instructions: "What is the first team member's name?",
+  details: "<b>Hint:</b> Use first name or full name, whatever you want to appear on the site.",
   type_of: 'text'
 )
 
