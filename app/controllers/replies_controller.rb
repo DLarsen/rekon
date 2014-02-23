@@ -40,7 +40,9 @@ class RepliesController < ProjectBaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reply_params
-      if !params[:reply][:answer_other].blank?
+      if params[:reply][:answer].kind_of?(Hash)
+        params[:reply][:answer] = params[:reply][:answer].values.join('|')
+      elsif !params[:reply][:answer_other].blank?
         params[:reply][:answer] = params[:reply][:answer_other]
       end
 
