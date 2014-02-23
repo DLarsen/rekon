@@ -70,7 +70,7 @@ p4 = Prompt.create(
   section: section_audience_non,
   slug: 'non-reasons',
   instructions: "Why would someone who is NOT a client visit your website?",
-  details: "Yes, we're forcing you to pick one.  They can't ALL be the most important.",
+  details: "The reasons might be the same as your existing clients, but they <i>might</i> be different.",
   type_of: 'checkbox',
   suggested_answers: [
     "Learn more about your area of expertise",

@@ -37,15 +37,15 @@ module PromptHelper
     suggested_answers.each_with_index do |suggestion, i|
       id = 'prompt_replies_answer_' + i.to_s
       checked = false
-      if is_prompt_item_checked(true, answer, suggestion)
+      if is_prompt_item_checked(is_radio, answer, suggestion)
         has_answered = true
         checked = true
-      elsif is_prompt_item_checked(false, answer, i)
+      elsif is_prompt_item_checked(is_radio, answer, i)
         checked = true
       end
 
       html << '<div class="col-xs-12 col-sm-4 form-group">'
-      html << '<div class="prompt-radio radio">'
+      html << "<div class=\"prompt-radio radio\" title=\"#{suggestion}\">"
       if is_radio
         html += form.radio_button :answer, suggestion, :id => id,
           :class => 'prompt-radio-input', :checked => checked
@@ -71,8 +71,8 @@ module PromptHelper
     html
   end
 
-  def is_prompt_item_checked(is_radio, answer, comparison)
-    logger.fatal is_radio.to_s + ' ' + answer.to_s + ' ' + comparison.to_s
+  # confirms whether or not radio/checkbox is checked by the value
+  def is_prompt_item_checked(is_radio, answer, comparison = false)
     if is_radio && answer == comparison
       true
     elsif !is_radio && answer && answer.split('|')[comparison.to_i] == '1'
