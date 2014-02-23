@@ -13,6 +13,7 @@ class RepliesController < ProjectBaseController
     respond_to do |format|
       if @reply.save
         format.html do
+          set_reply_exclusion(@reply.id)
           n = next_prompt(current_project, @reply.prompt.section)
           redirect_to prompt_url(n.id), notice: 'Reply was successfully created.'
         end
@@ -29,7 +30,7 @@ class RepliesController < ProjectBaseController
   def update
     respond_to do |format|
       if @reply.update(reply_params)
-
+        set_reply_exclusion(@reply.id)
         n = next_prompt(current_project, @reply.prompt.section)
 
         format.html { redirect_to prompt_url(n.id), notice: 'Reply was successfully updated.' }
@@ -45,6 +46,10 @@ class RepliesController < ProjectBaseController
     # Use callbacks to share common setup or constraints between actions.
     def set_reply
       @reply = Reply.find(params[:id])
+    end
+
+    def set_reply_exclusion(id)
+      flash[:reply_exclude] = id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
