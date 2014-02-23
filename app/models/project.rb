@@ -10,7 +10,10 @@
 #
 
 class Project < ActiveRecord::Base
+
+  # relationships
   belongs_to :flow
   has_many :replies
   has_many :section_statuses
+
 end

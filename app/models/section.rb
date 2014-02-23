@@ -12,13 +12,12 @@
 #
 
 class Section < ActiveRecord::Base
-  # we will want a way to get top-level prompts OR our entry points are sub-sections
-  has_many :prompts
-  belongs_to :flow
 
-  has_many :children, :class_name => "Section",
-    :foreign_key => "parent_id"
-  belongs_to :parent, :class_name => "Section"
+  # relationships
+  has_many :prompts # we will want a way to get top-level prompts OR our entry points are sub-sections
+  belongs_to :flow
+  belongs_to :parent, :class_name => "Section" # recursive relationship
+  has_many :children, :class_name => "Section", :foreign_key => "parent_id"
 
   def top_section
     if parent

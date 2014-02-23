@@ -16,6 +16,7 @@ class SectionStatus < ActiveRecord::Base
   INCOMPLETE = 1
   COMPLETE = 2
 
+  # relationships
   belongs_to :project
   belongs_to :section
 

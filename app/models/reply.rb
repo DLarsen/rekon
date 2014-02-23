@@ -11,10 +11,13 @@
 #
 
 class Reply < ActiveRecord::Base
+
+  # relationships
   belongs_to :prompt
   belongs_to :project
 
   def complete?
-    true
+    complete == true
   end
+
 end
