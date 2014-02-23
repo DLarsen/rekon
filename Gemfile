@@ -15,7 +15,7 @@ gem 'annotate', '>= 2.6.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '>= 3.1.1.0'
-gem 'compass', '>= 0.12.2'
+gem 'compass-rails', '>= 1.1.3'
 gem 'font-awesome-rails', '>= 4.0.3.1'
 
 # Use Uglifier as compressor for JavaScript assets

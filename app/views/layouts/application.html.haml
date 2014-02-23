@@ -43,7 +43,9 @@
             = yield
 
 
-      %footer.footer
-        .text-muted.text-center= 'Made by Dave, Nic & Jon'
+    %footer.footer
+      .text-muted.text-center= 'Made by Dave, Nic & Jon'
+
+    = render 'shared/minimap'
 
     = javascript_include_tag "application", "data-turbolinks-track" => true

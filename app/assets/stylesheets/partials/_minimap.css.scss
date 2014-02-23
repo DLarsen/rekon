@@ -1,0 +1,114 @@
+// minimap
+//-----------------------------
+
+// vars
+$minimap-width: 110px;
+
+.minimap {
+  background: $white;
+  border: 1px solid $gray;
+  border-width: 0 0 0 1px;
+  bottom: 0;
+  max-height: 100%;
+  max-width: $minimap-width;
+  padding: .5em;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: $zindex-navbar + 1;
+  @include single-box-shadow();
+  @include opacity(.8);
+
+  &:hover {
+    @include opacity(1);
+  }
+}
+
+.minimap-close {
+  right: -$minimap-width;
+}
+
+.minimap-body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  line-height: .5;
+}
+
+.minimap-toggle {
+  background: $white;
+  cursor: pointer;
+  border: 1px solid $gray;
+  border-right: none;
+  padding: .2em .3em;
+  position: absolute;
+  top: 1em;
+  right: 100%;
+  @include border-top-left-radius(4px);
+  @include border-bottom-left-radius(4px);
+
+  &:hover {
+    color: $green;
+  }
+}
+
+.minimap-action-open, .minimap-close .minimap-action-close {
+  display: none;
+}
+.minimap-close .minimap-action-open {
+  display: inline-block;
+}
+
+// text type items
+.minimap-text {
+  &:before {
+    display: block;
+    line-height: 1.5;
+    margin: .5em 0;
+  }
+}
+
+.minimap-text-header {
+  &:before {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing.";
+    font-size: 30%;
+    font-weight: bold;
+  }
+}
+
+.minimap-text-content {
+  &:before {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis vulputate lorem, ut congue augue. Mauris bibendum quis nunc ut pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla facilisi. Nam ut auctor eros. Proin aliquet massa enim, a facilisis lacus consectetur nec. Fusce sit amet velit convallis, scelerisque tortor adipiscing, consequat nunc.";
+    font-size: 20%;
+  }
+}
+
+.minimap-list {
+  &:before {
+    content: "\2022 Proin a turpis non mauris posuere asd\A \2022 Curabitur sollicitudin turpis non lectus \A \2022 Quisque elementum lacus ac euismod";
+    font-size: 20%;
+    margin-left: 3em;
+    margin-bottom: 2em;
+    white-space: pre-wrap;
+  }
+}
+
+// icon based
+.minimap-icon {
+  &:before {
+    display: block;
+    font-family: $font-family-icon;
+    font-size: 150%;
+    line-height: 1.1;
+    @include opacity(.4);
+  }
+}
+
+.minimap-media {
+  &:before {
+    content: "\f03e";
+    text-align: center;
+  }
+}
+
