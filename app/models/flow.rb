@@ -9,5 +9,9 @@
 #
 
 class Flow < ActiveRecord::Base
+
+  # relationships
   has_many :sections
+  has_many :projects
+
 end

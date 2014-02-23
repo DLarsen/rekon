@@ -14,13 +14,13 @@
 #
 
 class Section < ActiveRecord::Base
-  # we will want a way to get top-level prompts OR our entry points are sub-sections
-  has_many :prompts, -> { order('sequence asc')}
+
+  has_many :prompts, -> { order('sequence asc')} # we will want a way to get top-level prompts OR our entry points are sub-sections
   belongs_to :flow
 
+  belongs_to :parent, :class_name => "Section"  # recursive relationship
   has_many :children, -> { order('sequence asc')}, :class_name => "Section",
     :foreign_key => "parent_id"
-  belongs_to :parent, :class_name => "Section"
 
   def to_s
     self.to_json

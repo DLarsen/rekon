@@ -3,6 +3,7 @@ $(function() {
   // all initialization of your js are belong here!
 
   window.Timber = new Timber([
-    new Prompt()
+    new Prompt(),
+    new Minimap($('.minimap'))
   ]);
 });

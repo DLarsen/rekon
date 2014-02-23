@@ -38,7 +38,8 @@ Prompt.create(
   section: section_audience_existing,
   slug: 'non-reasons',
   instructions: "How often would you expect existing clients to use your website?",
-  type_of: 'text'
+  type_of: 'text',
+  hint: 'e.g. "3 times a week" or "Once a month"'
 )
 
 Prompt.create(
@@ -46,6 +47,7 @@ Prompt.create(
   section: section_audience_existing,
   slug: 'non-reasons',
   instructions: "Describe your company history in a way that existing clients would appreciate.",
+  details: 'Tell us about how you have solved client\'s problems in the past or possibly how you overcame a trial to found your company.',
   type_of: 'textarea'
 )
 
@@ -68,7 +70,7 @@ p4 = Prompt.create(
   section: section_audience_non,
   slug: 'non-reasons',
   instructions: "Why would someone who is NOT a client visit your website?",
-  details: "Yes, we're forcing you to pick one.  They can't ALL be the most important.",
+  details: "The reasons might be the same as your existing clients, but they <i>might</i> be different.",
   type_of: 'checkbox',
   suggested_answers: [
     "Learn more about your area of expertise",
@@ -146,33 +148,9 @@ p3 = Prompt.create(
   ]
 )
 
-p4 = Prompt.create(
-  sequence: 6,
-  section: section_audience_non,
-  slug: 'non-reasons',
-  instructions: "Why would someone who is NOT a client visit your website?",
-  details: "Yes, we're forcing you to pick one.  They can't ALL be the most important.",
-  type_of: 'checkbox',
-  suggested_answers: [
-    "Learn more about your area of expertise",
-    "Find email",
-    "Find other information",
-    "Submit information"
-  ]
-)
 
-# # EXPERTISE
-# p1 = Prompt.create(
-#   sequence: 7,
-#   section: section_expertise,
-#   slug: 'education-care',
-#   instructions: "How much do website visitors care about your education?",
-#   details: "The website is for them.  Let's give them what they want",
-#   type_of: 'radio',
-#   suggested_answers: ["Not Important", "Somewhat Important", "Very Important"]
-# )
+Reply.create(prompt:p1, answer: "Somewhat Important", complete: true, project: project)
 
-# Reply.create(prompt:p1, answer: "OK", complete: true, project: project)
 #Reply.create(prompt:prompt2, answer: "OK", complete: false, project: project)
 
 # Prompt.create(

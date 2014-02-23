@@ -61,6 +61,7 @@ class RepliesController < ProjectBaseController
         :project_id,
         :prompt_id,
         :answer,
+        :complete,
         :skipped,
         :not_applicable
       )

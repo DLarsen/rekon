@@ -32,18 +32,21 @@
             %li=link_to "Results", results_path
             %li=link_to "Sign Out", "#"
     .container.body-container
-      .col-xs-12.content-container
-        -if content_for?(:nav)
-          .row
-            .col-sm-3
-              = yield :nav
-            .col-sm-9
-              = yield
-        -else
-          = yield
+      .row.content-container
+        .col-xs-12
+          -if content_for?(:nav)
+            .row
+              .col-sm-3
+                = yield :nav
+              .col-sm-9
+                = yield
+          -else
+            = yield
 
 
-      %footer.footer
-        .text-muted.text-center= 'Made by Dave, Nic & Jon'
+    %footer.footer
+      .text-muted.text-center= 'Made by Dave, Nic & Jon'
+
+    = render 'shared/minimap'
 
     = javascript_include_tag "application", "data-turbolinks-track" => true

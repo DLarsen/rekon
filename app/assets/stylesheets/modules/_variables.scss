@@ -1,9 +1,15 @@
 // global variables & overrides
 //-----------------------------
 
+// colors
+$white: #fff;
 $green: #308958;
+$yellow: #ebd84b;
 $teal: #2E8699;
-$font-family-sans-serif: 'Open Sans', sans-serif;
+
+// fonts
+$font-family-sans-serif: 'Open Sans', Helvetica, Arial, sans-serif;
+$font-family-icon: 'FontAwesome';
 
 $border-radius-base: 0;
 
@@ -18,6 +24,7 @@ $box-space-xx: 3em;
 $container-sm: 100%; // @override
 $container-md: 100%; // @override
 
+
 // navbar whatevers
 $navbar-default-bg: $green;
 $navbar-default-border: darken($green, 25%);
@@ -30,9 +37,11 @@ $navbar-margin-bottom: 50px;
 
 // button colors
 $btn-primary-color: #fff;
+
 $btn-primary-bg: $teal;
 
 
 // button colors
 $nav-pills-active-link-hover-color: #444444;
 $nav-pills-active-link-hover-bg: #A9CBD2;
+

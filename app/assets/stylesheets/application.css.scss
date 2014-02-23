@@ -4,6 +4,7 @@
  */
 
 // modules first (non outputting)
+@import "compass";
 @import "modules/all";
 
 // twitter bootstrap
@@ -11,6 +12,9 @@
 
 // fontawesome
 @import "font-awesome";
+
+// animate.css
+@import "animate.min";
 
 // partials
 @import "partials/all";
