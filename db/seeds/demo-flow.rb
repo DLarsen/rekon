@@ -2,7 +2,7 @@
 flow = Flow.create(title:"Basic Brochure Website")
 project = Project.create(name:"Larsen, Gangloff & Larsen Website", flow: flow)
 
-s_overview   = Section.create({flow:flow, level: 1, sequence: 1, title: 'Basics'})
+s_overview   = Section.create({flow:flow, level: 1, sequence: 1, title: 'Basics', description: "Before diving deep into the heart of your content, let's get a few initial questions out of the way.<br /><br />This section should only take a few minutes to complete."})
 s_domain     = Section.create({flow:flow, level: 2, sequence: 1, parent: s_overview, title: 'Domain Name'})
 s_name       = Section.create({flow:flow, level: 2, sequence: 2, parent: s_overview, title: 'Name'})
 s_logo       = Section.create({flow:flow, level: 2, sequence: 3, parent: s_overview, title: 'Logo'})

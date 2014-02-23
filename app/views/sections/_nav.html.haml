@@ -11,10 +11,11 @@
               %li=link_to c.title, section_path(c), class: 'nav-l2'
     -else
       %li=link_to s.title, section_path(s), class: 'nav-l1'
-.mt
-  top
-  %pre=@top_section
+-#
+  .mt
+    top
+    %pre=@top_section
 
-.mt
-  sub
-  %pre=@sub_section
+  .mt
+    sub
+    %pre=@sub_section

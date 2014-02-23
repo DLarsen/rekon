@@ -1,10 +1,22 @@
+:css
+  .description { font-size: 1.4em; }
+
 -content_for :nav do
   =render 'sections/nav'
 
-%h1=@section.title
-%pre=@section.to_json
+%h1.prompt-instructions=@section.title
 
--if @section.prompts.size > 0
+-if @section.description
+  .description!=@section.description
+
+-if @section.first_prompt
+  .mt-xx
+    .pull-right
+      =link_to @section.first_prompt, class: 'btn btn-primary' do
+        Get Started
+        =fa_icon 'chevron-circle-right'
+
+-#if @section.prompts.size > 0
   %h1 Child Prompts
 
   %table.table
@@ -20,6 +32,6 @@
         %td=p.sequence
         %td=link_to p.instructions.html_safe, prompt_path(p)
 
--if @section.children.size > 0
+-#if @section.children.size > 0
   %h1 Child Sections
   =render 'list', sections: @section.children

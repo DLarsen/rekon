@@ -9,7 +9,7 @@
   =form.hidden_field :prompt_id
   =form.hidden_field :complete, value: true
   !=prompt_input_factory(form, @prompt.type_of, @prompt.replies.last.answer, @prompt.suggested_answers, @prompt.hint)
-  .row
+  -#.row
     .col-sm-3
       .checkbox.prompt-radio
         %label{ title: 'I don\'t want to answer this' }
@@ -20,7 +20,7 @@
         %label{ title: 'This is not applicable to me' }
           =form.check_box(:not_applicable)
           Not Applicable?
-  .row
+  .row.mt-xx
     .col-xs-6
       =link_to section_path(@prompt.section_id), class: 'btn btn-default' do
         =fa_icon 'chevron-circle-left'
@@ -29,9 +29,9 @@
       %button.btn.btn-primary
         Continue
         =fa_icon 'chevron-circle-right'
+-#
+  %pre=@prompt.to_json
 
-%pre=@prompt.to_json
-
-Replies
--@prompt.replies.each do |reply|
-  %pre=reply.to_json
+  Replies
+  -@prompt.replies.each do |reply|
+    %pre=reply.to_json

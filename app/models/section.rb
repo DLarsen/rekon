@@ -69,4 +69,12 @@ class Section < ActiveRecord::Base
       parent
     end
   end
+
+  def first_prompt
+    if first_child
+      first_child.prompts.first
+    else
+      nil
+    end
+  end
 end
