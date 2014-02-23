@@ -1,26 +1,11 @@
-%table.table
-  %tr
-    %th ID
-    %th Seq
-    %th Level
-    %th Section
-    %th Status
-    %th Next Sib
-    %th Prompts
-    %th Answered
-  -sections.each do |s|
-    %tr
-      %td=s.id
-      %td=s.sequence
-      %td=s.level
-      %td=link_to s.title, section_path(s)
-      %td
-        -if @status[s.id]
-          %div{class:@status[s.id].status}=@status[s.id].status
-        -else
-          ?
-      %td
-        -if s.next_sibling
-          =s.next_sibling.id
-      %td=s.prompts.count
-      %td=@answered[s.id]
+-sections.each do |section|
+  %h3
+    =link_to section.title, section_path(section), class: 'section-link'
+    %span.badge
+      =pluralize(section.prompts.count, 'Prompt')
+    -if @status[section.id]
+      %span.label.label-default
+        @status[s.id].status
+    -else
+      %span.label.label-success
+        New
